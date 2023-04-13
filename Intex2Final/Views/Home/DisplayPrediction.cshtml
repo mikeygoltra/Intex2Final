@@ -5,7 +5,12 @@
     <style>
 
         h2 {
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
         }
 
         label {
@@ -35,6 +40,7 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
     </style>
 </head>
 <body>
@@ -43,60 +49,78 @@
         the head would be facing when excavated based on the attributes that the mummy was given below. Without a value in every single field, the prediction will not work.
         So make sure to put a value in for every field!
     </h2></br>
-    <h3>
-        Besides West to Feet, West to Head, and South to Feet (which indicates below what values should be input), for the following input fields,
-        only enter the number 0 or 1.
-    </h3></br>
-    <h4>The number "0" = no/false, and the number "1" = yes/true.</h4></br>
 
-    <div>
+        <div>
         <label for="inputData">Sex = Male:</label>
-        <input type="text" id="sexMale" name="sexMale">
+        <select id="sexMale" name="sexMale">
+            <option value="1">Yes/True</option>
+            <option value="0">No/False</option>
+        </select>
         </br>
         <label for="inputData">Sex = Female:</label>
-        <input type="text" id="sexFemale" name="sexFemale">
+        <select id="sexFemale" name="sexFemale">
+            <option value="1">Yes/True</option>
+            <option value="0">No/False</option>
+        </select>
         </br>
-        <label for="inputData">Hair Color = Yellow:</label>
-        <input type="text" id="hairColor_Y" name="hairColor_Y">
+        <label for="inputData">Wrapping = S:</label>
+        <select id="wrapping_S" name="wrapping_S">
+            <option value="1">Yes/True</option>
+            <option value="0">No/False</option>
+        </select>
         </br>
         <label for="inputData">Sample Collected = Unknown:</label>
-        <input type="text" id="samplesCollected" name="samplesCollected">
+        <select id="samplesCollected" name="samplesCollected">
+            <option value="1">Yes/True</option>
+            <option value="0">No/True</option>
+        </select>
         </br>
         <label for="inputData">Wrapping = B:</label>
-        <input type="text" id="wrapping_B" name="wrapping_B">
+        <select id="wrapping_B" name="wrapping_B">
+            <option value="1">Yes/True</option>
+            <option value="0">No/True</option>
+        </select>
         </br>
         <label for="inputData">Age at Death = Child:</label>
-        <input type="text" id="ageAtDeath_C" name="ageAtDeath_C">
+        <select id="ageAtDeath_C" name="ageAtDeath_C">
+            <option value="1">Yes/True</option>
+            <option value="0">No/True</option>
+        </select>
         </br>
         <label for="inputData">No Samples Collected:</label>
-        <input type="text" id="samplesCollected_F" name="samplesCollected_F">
+        <select id="samplesCollected_F" name="samplesCollected_F">
+            <option value="1">Yes/True</option>
+            <option value="0">No/False</option>
+        </select>
         </br>
-        <label for="inputData">West To Feet (enter a number between 0.05 and 5):</label>
-        <input type="text" id="westtofeet" name="westtofeet">
+        <label for="inputData">Wrapping = W:</label>
+        <select id="wrapping_W" name="wrapping_W">
+            <option value="1">Yes/True</option>
+            <option value="0">No/False</option>
+        </select>
         </br>
-        <label for="inputData">West To Head (enter a number between 0.05 and 5):</label>
-        <input type="text" id="westtohead" name="westtohead">
+        <label for="inputData">Area = SE:</label>
+        <select id="area_SE" name="area_SE">
+            <option value="1">Yes/True</option>
+            <option value="0">No/False</option>
+        </select>
         </br>
-        <label for="inputData">South to Feet (enter a number between 0.05 and 5):</label>
-        <input type="text" id="southtofeet" name="southtofeet">
+        <label for="inputData">Wrapping = H:</label>
+        <select id="wrapping_H" name="wrapping_H">
+            <option value="1">Yes/True</option>
+            <option value="0">No/False</option>
+        </select>
         </br>
+
 
         <button onclick="performInference()">PREDICT</button>
         </br>
         </br>
     </div>
     <div>
-        <label for="outputData">Output Data:</label>
+        <label for="outputData">PREDICTED DIRECTION:</label>
         </br>
         <textarea id="outputData" name="outputData" rows="10" cols="50" readonly></textarea>
-        <p>
-            If the value in the "Output Data" textbox is 0.49 or below (positive or negative doesn't matter), then the predicted direction the head will be facing is the WEST
-            (because "0" in this case means that head direction is west in our statistical model).
-        </p>
-        <p>
-            If the value in the "Output Data" textbox is 0.50 or above (positive or negative doesn't matter), then the predicted direction the head will be facing is the EAST
-            (because "1" in this case means that head direction is east in our statistical model).
-        </p>
     </div>
 
     <script>
@@ -104,14 +128,14 @@
             // Get the input data from the form
             const sexMale = parseFloat(document.getElementById('sexMale').value);
             const sexFemale = parseFloat(document.getElementById('sexFemale').value);
-            const hairColor_Y = parseFloat(document.getElementById('hairColor_Y').value);
+            const wrapping_S = parseFloat(document.getElementById('wrapping_S').value);
             const samplesCollected = parseFloat(document.getElementById('samplesCollected').value);
             const wrapping_B = parseFloat(document.getElementById('wrapping_B').value);
             const ageAtDeath_C = parseFloat(document.getElementById('ageAtDeath_C').value);
             const samplesCollected_F = parseFloat(document.getElementById('samplesCollected_F').value);
-            const westtofeet = parseFloat(document.getElementById('westtofeet').value);
-            const westtohead = parseFloat(document.getElementById('westtohead').value);
-            const southtofeet = parseFloat(document.getElementById('southtofeet').value);
+            const wrapping_W = parseFloat(document.getElementById('wrapping_W').value);
+            const area_SE = parseFloat(document.getElementById('area_SE').value);
+            const wrapping_H = parseFloat(document.getElementById('wrapping_H').value);
 
             // Define the API endpoint URL
             const apiUrl = 'https://localhost:44370/score';
@@ -120,15 +144,16 @@
             const requestBody = {
                 "sexMale": sexMale,
                 "sexFemale": sexFemale,
-                "hairColor_Y": hairColor_Y,
+                "wrapping_S": wrapping_S,
                 "samplesCollected": samplesCollected,
                 "wrapping_B": wrapping_B,
                 "ageAtDeath_C": ageAtDeath_C,
                 "samplesCollected_F": samplesCollected_F,
-                "westtofeet": westtofeet,
-                "westtohead": westtohead,
-                "southtofeet": southtofeet
+                "wrapping_W": wrapping_W,
+                "area_SE": area_SE,
+                "wrapping_H": wrapping_H
             };
+
 
             // Send the POST request to the API endpoint
             fetch(apiUrl, {
@@ -142,7 +167,14 @@
                 .then(data => {
                     // Display the output data in the textarea
                     const outputDataTextarea = document.getElementById('outputData');
-                    outputDataTextarea.textContent = JSON.stringify(data);
+                    const predictedValue = data.predictedValue;
+
+                    if (predictedValue < 0.50) {
+                        outputDataTextarea.textContent = "EAST";
+                    } else if (predictedValue >= 0.50) {
+                        outputDataTextarea.textContent = "WEST";
+                    }
+
                 })
                 .catch(error => {
                     console.error('Error performing inference:', error);

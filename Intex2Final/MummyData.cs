@@ -14,7 +14,7 @@ namespace HeaddirectionModelTest
         [Required]
         public float SexFemale { get; set; }
         [Required]
-        public float HairColor_Y { get; set; }
+        public float Wrapping_S { get; set; }
         [Required]
         public float SamplesCollected { get; set; }
         [Required]
@@ -24,19 +24,19 @@ namespace HeaddirectionModelTest
         [Required]
         public float SampleCollected_F { get; set; }
         [Required]
-        public float WestToFeet { get; set; }
+        public float Wrapping_W { get; set; }
         [Required]
-        public float WestToHead { get; set; }
+        public float Area_SE { get; set; }
         [Required]
-        public float SouthToFeet { get; set; }
+        public float Wrapping_H { get; set; }
 
 
         public Tensor<float> AsTensor()
         {
             float[] data = new float[]
             {
-            SexMale, SexFemale, HairColor_Y, SamplesCollected, Wrapping_B,
-                AgeAtDeath_C, SampleCollected_F, WestToFeet, WestToHead, SouthToFeet
+            SexMale, SexFemale, Wrapping_S, SamplesCollected, Wrapping_B,
+                AgeAtDeath_C, SampleCollected_F, Wrapping_W, Area_SE, Wrapping_H
             };
             int[] dimensions = new int[] { 1, 10 };
 
