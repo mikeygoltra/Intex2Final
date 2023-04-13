@@ -8,6 +8,8 @@ namespace Intex2Final.Models.ViewModels
     public class MummyViewModel
     {
         public IQueryable<Burialmain> Burialmains { get; set; }
+        //public Burialmain Burialmains { get; set; }
         public PageInfo PageInfo { get; set; }
+        public string PassData { get; set; }
     }
 }

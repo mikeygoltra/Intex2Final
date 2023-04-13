@@ -2,6 +2,7 @@
 using Intex2Final.Models;
 using Intex2Final.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -40,26 +41,67 @@ namespace Intex2Final.Controllers
 
         //Change the filtering to fields rather than using view context-
             //so you will not use the bodySex and other inputs like that- but instead you will use what was in the form - you can choose to use ViewBags or Models
-        public IActionResult Dashboard(string bodySex, int pageNum = 1)
+
+        //------------
+        //create list of if statements
+            //starting with the total amount of items -- use context.tablename."AsQueryable()"
+            //then making if statements for each filter saying if the input for that filter is not null, then grab all the items in that match the value that was chosen
+            //then take that list and move it down 
+
+        public IActionResult Dashboard(IFormCollection form, int pageNum = 1)
         {
-            int pageSize = 5;
+            Burialmain bury = (Burialmain)context.Burialmain;
+            ViewBag.Burialmain = bury;
 
             //we have two models we are using so if we need to pass data to both, do it here
+
+            string depth = form["depthIn"].ToString();
+            string age = form["ageIn"].ToString();
+            string head = form["headIn"].ToString();
+            string sex = form["sexIn"].ToString();
+
+
+            var buryQuery = context.Burialmain.AsQueryable();
+
+            if (depth != null)
+            {
+                buryQuery = repo.Burialmains.Where(b => b.Depth == depth);
+            }
+            if (age != null)
+            {
+                buryQuery = repo.Burialmains.Where(b => b.Ageatdeath == age);
+            }
+            if (head != null)
+            {
+                buryQuery = repo.Burialmains.Where(b => b.Headdirection == head);
+            }
+            if (sex != null)
+            {
+                buryQuery = repo.Burialmains.Where(b => b.Sex == sex);
+            }
+
+            
+            //--------------------------------------------------
+
+            int pageSize = 5;
             var passInfo = new MummyViewModel
             {
-                Burialmains = repo.Burialmains
-                .Where(b => b.Sex == bodySex || bodySex == null)
-                .OrderBy(b => b.Id)
+                Burialmains = buryQuery
+                .OrderBy(b=>b.Id)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
 
+                //repo.Burialmains
+                //.Where(b => b.Sex == bodySex || bodySex == null)
+                //.OrderBy(b => b.Id)
+                //.Skip((pageNum - 1) * pageSize)
+                //.Take(pageSize),
+
+
                 PageInfo = new PageInfo
                 {
-                    TotalNumBurials =
-                        (bodySex == null ?
-                            repo.Burialmains.Count()
-                            : repo.Burialmains.Where(x => x.Sex == bodySex).Count()),
+                    TotalNumBurials = buryQuery.Count(),
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum
                 }

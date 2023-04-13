@@ -1,13 +1,45 @@
 ﻿
 @model IEnumerable<string>
 
-<div class="d-grid gap-2">
+@*<div class="d-grid gap-2">
     <a asp-controller="Home" asp-action="Index" asp-route-bodySex="" asp-route-pageNum=""
        class="btn btn-outline-secondary">Home</a>
     @foreach (string s in Model)
     {
         @*For the other bit of extra bootstrap I did, I made the category buttons a different color*@
-        <a asp-controller="Home" asp-action="Index" asp-route-bodySex="@s" asp-route-pageNum=""
+  @*      <a asp-controller="Home" asp-action="Index" asp-route-bodySex="@s" asp-route-pageNum=""
            class="btn @(ViewBag.SelectedSex == s ? "btn-primary" : "btn-outline-secondary")" style="background-color: rgb(143, 188, 143)">@s</a>
     }
+</div>*@
+
+@*
+
+<div>
+    <form method="post">
+        
+    </form>
 </div>
+
+
+
+
+
+
+<div>
+    <form method="post">
+        <input type="number" class="p-2" value="Depth(m)" asp-for="@ViewBag.Burialmain.Depth" name="depthIn"/>
+        <input type="number" class="p-2" value="Age at Death" asp-for="@ViewBag.Burialmain.Ageatdeath" name="ageIn"/>
+
+        <select class="p-2" asp-for="@ViewBag.Burialmain.Sex" name="sexIn">
+            <option value="">Sex</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <select class="p-2" asp-for="@ViewBag.Burialmain.Headdirection" name="headIn">
+            <option value="">Head Direction</option>
+            <option value="W">West</option>
+            <option value="E">East</option>
+        </select>
+    </form>
+</div>*@
