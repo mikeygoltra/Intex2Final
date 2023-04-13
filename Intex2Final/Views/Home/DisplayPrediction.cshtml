@@ -41,6 +41,8 @@
             border-radius: 5px;
         }
 
+
+
     </style>
 </head>
 <body>
@@ -50,77 +52,95 @@
         So make sure to put a value in for every field!
     </h2></br>
 
-        <div>
-        <label for="inputData">Sex = Male:</label>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <label for="sexMale">Sex = Male:</label>
         <select id="sexMale" name="sexMale">
             <option value="1">Yes/True</option>
             <option value="0">No/False</option>
         </select>
-        </br>
-        <label for="inputData">Sex = Female:</label>
+
+        <label for="sexFemale">Sex = Female:</label>
         <select id="sexFemale" name="sexFemale">
             <option value="1">Yes/True</option>
             <option value="0">No/False</option>
         </select>
-        </br>
-        <label for="inputData">Wrapping = S:</label>
+
+        <label for="wrapping_S">Wrapping = S:</label>
         <select id="wrapping_S" name="wrapping_S">
             <option value="1">Yes/True</option>
             <option value="0">No/False</option>
         </select>
-        </br>
-        <label for="inputData">Sample Collected = Unknown:</label>
+
+        <label for="samplesCollected">Sample Collected = Unknown:</label>
         <select id="samplesCollected" name="samplesCollected">
             <option value="1">Yes/True</option>
             <option value="0">No/True</option>
         </select>
-        </br>
-        <label for="inputData">Wrapping = B:</label>
+
+        <label for="wrapping_B">Wrapping = B:</label>
         <select id="wrapping_B" name="wrapping_B">
             <option value="1">Yes/True</option>
             <option value="0">No/True</option>
         </select>
-        </br>
-        <label for="inputData">Age at Death = Child:</label>
+
+        <label for="ageAtDeath_C">Age at Death = Child:</label>
         <select id="ageAtDeath_C" name="ageAtDeath_C">
             <option value="1">Yes/True</option>
             <option value="0">No/True</option>
         </select>
-        </br>
-        <label for="inputData">No Samples Collected:</label>
+
+        <label for="samplesCollected_F">No Samples Collected:</label>
         <select id="samplesCollected_F" name="samplesCollected_F">
             <option value="1">Yes/True</option>
             <option value="0">No/False</option>
         </select>
-        </br>
-        <label for="inputData">Wrapping = W:</label>
+
+        <label for="wrapping_W">Wrapping = W:</label>
         <select id="wrapping_W" name="wrapping_W">
             <option value="1">Yes/True</option>
             <option value="0">No/False</option>
         </select>
-        </br>
-        <label for="inputData">Area = SE:</label>
+
+        <label for="area_SE">Area = SE:</label>
         <select id="area_SE" name="area_SE">
             <option value="1">Yes/True</option>
             <option value="0">No/False</option>
         </select>
-        </br>
-        <label for="inputData">Wrapping = H:</label>
+
+        <label for="wrapping_H">Wrapping = H:</label>
         <select id="wrapping_H" name="wrapping_H">
             <option value="1">Yes/True</option>
             <option value="0">No/False</option>
         </select>
-        </br>
+    </div>
+
+    <style>
+        label {
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        select {
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
 
 
-        <button onclick="performInference()">PREDICT</button>
-        </br>
-        </br>
+
+    <button onclick="performInference()">PREDICT</button>
+    </br>
+    </br>
     </div>
     <div>
-        <label for="outputData">PREDICTED DIRECTION:</label>
-        </br>
-        <textarea id="outputData" name="outputData" rows="10" cols="50" readonly></textarea>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; text-align: center;">
+            <label for="outputData" style="font-size: 20px;">PREDICTED DIRECTION:</label>
+            <br>
+            <textarea id="outputData" name="outputData" rows="10" cols="50" readonly style="font-size: 30px;"></textarea>
+        </div>
+
     </div>
 
     <script>
@@ -165,15 +185,21 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    // Display the output data in the textarea
                     const outputDataTextarea = document.getElementById('outputData');
                     const predictedValue = data.predictedValue;
 
                     if (predictedValue < 0.50) {
                         outputDataTextarea.textContent = "EAST";
+                        outputDataTextarea.style.color = "green";
                     } else if (predictedValue >= 0.50) {
                         outputDataTextarea.textContent = "WEST";
+                        outputDataTextarea.style.color = "blue";
                     }
+                    outputDataTextarea.style.fontSize = "16px";
+                    outputDataTextarea.style.fontWeight = "bold";
+                    outputDataTextarea.style.padding = "10px";
+                    outputDataTextarea.style.border = "2px solid black";
+
 
                 })
                 .catch(error => {
