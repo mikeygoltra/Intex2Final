@@ -1,0 +1,31 @@
+﻿
+@model MummyViewModel
+
+@foreach (Burialmain b in Model.Burialmains)
+{
+    <form class="formKiller">
+        <partial name="BurialSummary" model="b" />
+    </form>
+}
+
+    <div page-next="@Model.PageInfo" page-action="Index" page-class="btn"
+         page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+         page-class-enabled="true" class="btn-group pull-right m-1">
+
+    </div>
+
+
+@*        <div class="row m-1 p-1">
+
+        <div id="types" class="col-3">*@
+            @*this class will be 3 col wide*@
+@*            <vc:sex></vc:sex>
+        </div>
+
+        <div class="col-9">
+            <div>*@
+       @*         @RenderBody()*@
+  @*          </div>
+        </div>
+
+    </div>*@

@@ -1,0 +1,13 @@
+﻿
+@model IEnumerable<string>
+
+<div class="d-grid gap-2">
+    <a asp-controller="Home" asp-action="Index" asp-route-bodySex="" asp-route-pageNum=""
+       class="btn btn-outline-secondary">Home</a>
+    @foreach (string s in Model)
+    {
+        @*For the other bit of extra bootstrap I did, I made the category buttons a different color*@
+        <a asp-controller="Home" asp-action="Index" asp-route-bodySex="@s" asp-route-pageNum=""
+           class="btn @(ViewBag.SelectedSex == s ? "btn-primary" : "btn-outline-secondary")" style="background-color: rgb(143, 188, 143)">@s</a>
+    }
+</div>
