@@ -17,15 +17,12 @@ namespace Intex2Final.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-
-        private IMummyRepository repo;
         private intex2dbContext context;
 
-        public HomeController(ILogger<HomeController> logger, intex2dbContext temp, IMummyRepository another)
+        public HomeController(ILogger<HomeController> logger, intex2dbContext temp)
         {
             _logger = logger;
             context = temp;
-            repo = another;
         }
 
         public IActionResult Test()
@@ -49,36 +46,41 @@ namespace Intex2Final.Controllers
             //then making if statements for each filter saying if the input for that filter is not null, then grab all the items in that match the value that was chosen
             //then take that list and move it down 
 
-        public IActionResult Dashboard(IFormCollection form, int pageNum = 1)
+        public IActionResult Dashboard(int pageNum = 1, string depthIn = null, string ageIn = null, string headIn = null, string sexIn = null)
         {
-            Burialmain bury = (Burialmain)context.Burialmain;
-            ViewBag.Burialmain = bury;
+            //Burialmain bury = context.Burialmain;
+            //ViewBag.Burialmain = bury;
+            //List<Burialmain> bury = context.Burialmain.ToList();
+            //ViewBag.Burialmain = bury;
 
             //we have two models we are using so if we need to pass data to both, do it here
 
-            string depth = form["depthIn"].ToString();
-            string age = form["ageIn"].ToString();
-            string head = form["headIn"].ToString();
-            string sex = form["sexIn"].ToString();
+            //string depth = form["depthIn"].ToString();
+            //string age = form["ageIn"].ToString();
+            //string head = form["headIn"].ToString();
+            //string sex = form["sexIn"].ToString();
 
+
+            List<Burialmain> burialList = context.Burialmain.ToList();
+            ViewBag.Burialmain = burialList;
 
             var buryQuery = context.Burialmain.AsQueryable();
 
-            if (depth != null)
+            if (depthIn != null)
             {
-                buryQuery = repo.Burialmains.Where(b => b.Depth == depth);
+                buryQuery = context.Burialmain.Where(b => b.Depth == depthIn);
             }
-            if (age != null)
+            if (ageIn != null)
             {
-                buryQuery = repo.Burialmains.Where(b => b.Ageatdeath == age);
+                buryQuery = context.Burialmain.Where(b => b.Ageatdeath == ageIn);
             }
-            if (head != null)
+            if (headIn != null)
             {
-                buryQuery = repo.Burialmains.Where(b => b.Headdirection == head);
+                buryQuery = context.Burialmain.Where(b => b.Headdirection == headIn);
             }
-            if (sex != null)
+            if (sexIn != null)
             {
-                buryQuery = repo.Burialmains.Where(b => b.Sex == sex);
+                buryQuery = context.Burialmain.Where(b => b.Sex == sexIn);
             }
 
             
@@ -114,7 +116,7 @@ namespace Intex2Final.Controllers
         public IActionResult InfoPage(int burid)
         {
 
-            Burialmain burialmain = repo.Burialmains.FirstOrDefault(a => a.Id == burid);
+            Burialmain burialmain = context.Burialmain.FirstOrDefault(a => a.Id == burid);
             if (burialmain == null)
             {
                 return NotFound();
@@ -142,11 +144,6 @@ namespace Intex2Final.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult Unsupervised()
-        {
-            return View();
         }
 
         [HttpGet]

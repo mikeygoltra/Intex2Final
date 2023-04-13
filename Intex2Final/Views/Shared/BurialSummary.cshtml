@@ -4,6 +4,19 @@
 
 @model Burialmain
     
+
+@public dynamic NullONo(var element)
+{
+    if (Model.element == null)
+    {
+        return("Null");
+    }
+    else
+    {
+        return Model.element;
+    }
+}
+
 <input type="hidden" name="burid" value="@Model.Id" />
 <a href="@Url.Action("InfoPage", "Home", new { burid = Model.Id })">
     @*<button type="submit" asp-controller="Home" asp-action="InfoPage" model=@Model class="w-100 m-1 p-1">*@

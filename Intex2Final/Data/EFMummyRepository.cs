@@ -13,7 +13,7 @@ namespace Intex2Final.Data
         {
             context = temp;
         }
-        public IQueryable<Burialmain> Burialmains => context.BurialMain;
+        //public Burialmain Burialmains => context.Burialmain;
 
     }
 }

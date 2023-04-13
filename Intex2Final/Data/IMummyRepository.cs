@@ -8,6 +8,6 @@ namespace Intex2Final.Data
 {
     public interface IMummyRepository
     {
-        IQueryable<Burialmain> Burialmains { get; }
+        //Burialmain Burialmains { get; }
     }
 }

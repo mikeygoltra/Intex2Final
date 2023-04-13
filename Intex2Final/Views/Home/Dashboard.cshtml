@@ -15,28 +15,47 @@
     </div>*@
 
 
-
+@model Intex2Final.Models.ViewModels.MummyViewModel
 
 @*<div>
     <form method="post">
-        <input type="number" class="p-2" value="Depth(m)" asp-for="@ViewBag.Burialmain.Depth" name="depthIn"/>
-        <input type="number" class="p-2" value="Age at Death" asp-for="@ViewBag.Burialmain.Ageatdeath" name="ageIn"/>
+            <label asp-for="Model.Burialmain.Headdirection">Head Direction</label>
+                <select asp-for="Headdirection">
+                    <option value=""></option>
+                    <option value="W">West</option>
+                    <option value="E">East</option>
+                </select>
+        <input type="hidden" value="@ViewBag.Burialmain.Id" name="Id" />
+        <button type="submit" class="p-2" asp-controller="Home" asp-action="Dashboard" asp-route-pageNum="">Filter</button>
+    </form>
+</div>*@
 
-        <select class="p-2" asp-for="@ViewBag.Burialmain.Sex" name="sexIn">
+
+
+
+
+<div>
+    <form method="get">
+        <input type="number" class="p-2" value="Depth(m)" name="depthIn"/>
+        <input type="number" class="p-2" value="Age at Death" name="ageIn"/>
+
+        <select class="p-2" name="sexIn">
             <option value="">Sex</option>
             <option value="M">Male</option>
             <option value="F">Female</option>
         </select>
 
-        <select class="p-2" asp-for="@ViewBag.Burialmain.Headdirection" name="headIn">
+        <select class="p-2" name="headIn">
             <option value="">Head Direction</option>
             <option value="W">West</option>
             <option value="E">East</option>
         </select>
+        <input type="hidden" name="Id" />
+        <button type="submit" class="p-2" asp-controller="Home" asp-action="Dashboard" asp-route-pageNum="">Filter</button>
     </form>
-</div>*@
+</div>
 
-@foreach (var b in ViewBag.Burialmain)
+@*@foreach (var b in ViewBag.Burialmain)
 {
 
     <form method="post" class="formKiller">
@@ -70,27 +89,31 @@
             </div>
         </button>
     </form>
-}
+}*@
 
 
 
-@*
-@foreach (var b in ViewBag.Burialmain)
-{
-    var burialViewModel = new MummyViewModel
-    {
-        Burialmain = b,
-        PassData = ViewBag.PassData
-    };
-    <form method="post" class="formKiller">
-        <partial name="BurialSummary" model="burialViewModel" />
-    </form>
-}
-    <div page-next="@Model.PageInfo" page-action="Index" page-class="btn"
-         page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-         page-class-enabled="true" class="btn-group pull-right m-1">
 
-    </div>*@
+<div class="row m-1 p-1">
+
+    <div class="col-9" style="margin:auto">
+        <div>
+            @foreach (var b in ViewBag.Burialmain)
+            {
+                <form method="post" class="formKiller">
+                    <partial name="BurialSummary" model="b" />
+                </form>
+            }
+
+            <div page-next="@Model.PageInfo" page-action="Index" page-class="btn"
+                 page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+                 page-class-enabled="true" class="btn-group pull-right m-1">
+
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 

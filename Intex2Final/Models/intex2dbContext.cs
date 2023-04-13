@@ -31,7 +31,8 @@ namespace Intex2Final.Models
         public virtual DbSet<Bodyanalysischart> Bodyanalysischart { get; set; }
         public virtual DbSet<Books> Books { get; set; }
         public virtual DbSet<Burialmain> Burialmain { get; set; }
-        public IQueryable<Burialmain> BurialMain { get; internal set; }
+        //public IQueryable<Burialmain> BurialMain { get; internal set; }
+
         public virtual DbSet<BurialmainBiological> BurialmainBiological { get; set; }
         public virtual DbSet<BurialmainBodyanalysischart> BurialmainBodyanalysischart { get; set; }
         public virtual DbSet<BurialmainCranium> BurialmainCranium { get; set; }
