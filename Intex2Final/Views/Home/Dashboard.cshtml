@@ -1,0 +1,96 @@
+﻿@*
+@model MummyViewModel
+
+@foreach (Burialmain b in Model.Burialmains)
+{
+    <form class="formKiller">
+        <partial name="BurialSummary" model="b" />
+    </form>
+}
+
+    <div page-next="@Model.PageInfo" page-action="Index" page-class="btn"
+         page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+         page-class-enabled="true" class="btn-group pull-right m-1">
+
+    </div>*@
+
+
+
+
+@*<div>
+    <form method="post">
+        <input type="number" class="p-2" value="Depth(m)" asp-for="@ViewBag.Burialmain.Depth" name="depthIn"/>
+        <input type="number" class="p-2" value="Age at Death" asp-for="@ViewBag.Burialmain.Ageatdeath" name="ageIn"/>
+
+        <select class="p-2" asp-for="@ViewBag.Burialmain.Sex" name="sexIn">
+            <option value="">Sex</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <select class="p-2" asp-for="@ViewBag.Burialmain.Headdirection" name="headIn">
+            <option value="">Head Direction</option>
+            <option value="W">West</option>
+            <option value="E">East</option>
+        </select>
+    </form>
+</div>*@
+
+@foreach (var b in ViewBag.Burialmain)
+{
+
+    <form method="post" class="formKiller">
+        <input type="hidden" name="burId" value="@b.Id" />
+        <button type="submit" asp-controller="Home" asp-action="InfoPage" id="@b.Id" name="buryId" class="w-100 m-1 p-1">
+            <div class="card card-outline-primary m-1 p-1">
+
+                <div class="bg-opacity-75 p-1">
+                    <h4>@b.Area.</h4>
+
+                    <span class="badge bg-dark text-light" style="float:right">
+                        Head Direction: @b.Headdirection
+                    </span>
+                    <br />
+                    <span class="badge bg-dark text-light" style="float:right">
+                        Sex: @b.Sex
+                    </span>
+
+                </div>
+
+                <ul>
+                    <li>ID: @b.Id</li>
+                    <li>Square North South: @b.Squarenorthsouth</li>
+                    <li>North South: @b.Northsouth</li>
+                    <li>Depth: @b.Depth</li>
+                    <li>East West: @b.Eastwest</li>
+                    <li>Adult-Subadult: @b.Adultsubadult</li>
+                    <li>Face Bundles: @b.Facebundles</li>
+                </ul>
+
+            </div>
+        </button>
+    </form>
+}
+
+
+
+@*
+@foreach (var b in ViewBag.Burialmain)
+{
+    var burialViewModel = new MummyViewModel
+    {
+        Burialmain = b,
+        PassData = ViewBag.PassData
+    };
+    <form method="post" class="formKiller">
+        <partial name="BurialSummary" model="burialViewModel" />
+    </form>
+}
+    <div page-next="@Model.PageInfo" page-action="Index" page-class="btn"
+         page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+         page-class-enabled="true" class="btn-group pull-right m-1">
+
+    </div>*@
+
+
+

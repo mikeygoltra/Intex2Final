@@ -1,0 +1,46 @@
+﻿
+@{
+}
+
+@model Burialmain
+    
+<input type="hidden" name="burid" value="@Model.Id" />
+<a href="@Url.Action("InfoPage", "Home", new { burid = Model.Id })">
+    @*<button type="submit" asp-controller="Home" asp-action="InfoPage" model=@Model class="w-100 m-1 p-1">*@
+    @*<a asp-controller="Home" asp-action="InfoPage" model=@Model>*@
+    <div class="card card-outline-primary m-1 p-1">
+
+        <div class="bg-opacity-75 p-1">
+            <h4>@Model.Area.</h4>
+
+            <span class="badge bg-dark text-light" style="float:right">
+                Head Direction: @Model.Headdirection
+            </span>
+            <br />
+            <span class="badge bg-dark text-light" style="float:right">
+                Sex: @Model.Sex
+            </span>
+
+        </div>
+
+        <ul>
+            <li>ID: @Model.Id</li>
+            <li>Square North South: @Model.Squarenorthsouth</li>
+            <li>North South: @Model.Northsouth</li>
+            <li>Depth: @Model.Depth</li>
+            <li>East West: @Model.Eastwest</li>
+            <li>Adult-Subadult: @Model.Adultsubadult</li>
+            <li>Face Bundles: @Model.Facebundles</li>
+        </ul>
+
+    </div>
+</a>
+
+
+@*        Id
+        Squarenorthsouth
+        Northsouth
+        Depth
+        Eastwest
+        Adultsubadult
+        Facebundles*@
