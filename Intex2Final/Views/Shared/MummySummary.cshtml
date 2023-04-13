@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Burialmain
+
+<div class="card m-1 p-1 border-dark">
+    <div class="bg-opacity-75 p-1">
+        <h4 class="card-header">@Model.Area</h4>
+        <span class="badge bg-dark" style="float:right">Price: $@Model.Sex</span>
+
+    </div>
+
+    <ul>
+        <li class="list-group-item">Author: @Model.Ageatdeath</li>
+        <li class="list-group-item">Publisher: @Model.Samplescollected</li>
+        @*<li class="list-group-item">ISBN: @Model.Isbn</li>
+        <li class="list-group-item">Classification: @Model.Classification</li>
+        <li class="list-group-item">Category: @Model.Category</li>
+        <li class="list-group-item">@Model.PageCount pages</li>*@
+
+    </ul>
+</div>

@@ -1,4 +1,5 @@
 ﻿using Intex2Final.Models;
+using Intex2Final.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,7 +15,14 @@ namespace Intex2Final.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private intex2dbContext context; 
+        private intex2dbContext context;
+
+        //private IMummiesRepository repo;
+
+        //public HomeController(IMummiesRepository temp) 
+        //{
+        //    repo = temp;
+        //}
 
         public HomeController(ILogger<HomeController> logger, intex2dbContext temp)
         {
@@ -121,9 +129,35 @@ namespace Intex2Final.Controllers
             return View("Confirmation");
         }
 
+        public IActionResult MummiesView(int pageNum = 1)
+        {
+            int pageSize = 5;
+
+            var x = new MummiesViewModel
+            {
+                Burialmains = context.Burialmain
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumMummies = (context.Burialmain.Count()),
+                    MummiesPerPage = pageSize,
+                    CurrentPage = pageNum,
+
+                }
+            };
+
+            return View(x);
+
+        }
+
         public IActionResult DisplayPrediction()
         {
             return View();
         }
     }
 }
+
+
+//this is a test for git hub

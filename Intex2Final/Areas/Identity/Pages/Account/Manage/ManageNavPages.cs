@@ -14,7 +14,7 @@ namespace Intex2Final.Areas.Identity.Pages.Account.Manage
 
         public static string ChangePassword => "ChangePassword";
 
-        public static string DownloadPersonalData => "DownloadPersonalData";
+        //public static string DownloadPersonalData => "DownloadPersonalData";
 
         public static string DeletePersonalData => "DeletePersonalData";
 
@@ -30,7 +30,7 @@ namespace Intex2Final.Areas.Identity.Pages.Account.Manage
 
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
 
-        public static string DownloadPersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, DownloadPersonalData);
+        //public static string DownloadPersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, DownloadPersonalData);
 
         public static string DeletePersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, DeletePersonalData);
 

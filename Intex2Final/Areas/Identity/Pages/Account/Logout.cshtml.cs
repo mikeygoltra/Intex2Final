@@ -13,12 +13,12 @@ namespace Intex2Final.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<IdentityUser> _signInManger;
         private readonly ILogger<LogoutModel> _logger;
 
         public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
         {
-            _signInManager = signInManager;
+            _signInManger = signInManager;
             _logger = logger;
         }
 
@@ -28,7 +28,7 @@ namespace Intex2Final.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
-            await _signInManager.SignOutAsync();
+            await _signInManger.SignOutAsync();
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
