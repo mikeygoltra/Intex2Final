@@ -5,7 +5,8 @@
 @model Burialmain
     
 
-@public dynamic NullONo(var element)
+@*@functions{
+    public dynamic NullONo(string element)
 {
     if (Model.element == null)
     {
@@ -16,6 +17,7 @@
         return Model.element;
     }
 }
+}*@
 
 <input type="hidden" name="burid" value="@Model.Id" />
 <a href="@Url.Action("InfoPage", "Home", new { burid = Model.Id })">
