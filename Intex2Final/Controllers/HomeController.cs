@@ -17,13 +17,6 @@ namespace Intex2Final.Controllers
 
         private intex2dbContext context;
 
-        //private IMummiesRepository repo;
-
-        //public HomeController(IMummiesRepository temp) 
-        //{
-        //    repo = temp;
-        //}
-
         public HomeController(ILogger<HomeController> logger, intex2dbContext temp)
         {
             _logger = logger;
@@ -141,8 +134,8 @@ namespace Intex2Final.Controllers
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumMummies = (context.Burialmain.Count()),
-                    MummiesPerPage = pageSize,
+                    TotalNumBurials = (context.Burialmain.Count()),
+                    BurialsPerPage = pageSize,
                     CurrentPage = pageNum,
 
                 }
@@ -151,6 +144,70 @@ namespace Intex2Final.Controllers
             return View(x);
 
         }
+
+        //Maryn's code
+        //public IActionResult Dashboard(int pageNum = 1, string depthIn = null, string ageIn = null, string headIn = null, string sexIn = null)
+        //{
+        //    //List<Burialmain> burialList = context.Burialmain.ToList();
+        //    //ViewBag.Burialmain = burialList;
+
+        //    //--------this is the filtering
+
+        //    var buryQuery = context.Burialmain.AsQueryable();
+
+        //    if (depthIn != null)
+        //    {
+        //        buryQuery = context.Burialmain.Where(b => b.Depth == depthIn);
+        //    }
+        //    if (ageIn != null)
+        //    {
+        //        buryQuery = context.Burialmain.Where(b => b.Ageatdeath == ageIn);
+        //    }
+        //    if (headIn != null)
+        //    {
+        //        buryQuery = context.Burialmain.Where(b => b.Headdirection == headIn);
+        //    }
+        //    if (sexIn != null)
+        //    {
+        //        buryQuery = context.Burialmain.Where(b => b.Sex == sexIn);
+        //    }
+
+
+        //    //--------------------------------------------------
+
+        //    // ---------Here you set the correct number of burials on each page
+        //    int pageSize = 5;
+        //    var passInfo = new MummyViewModel
+        //    {
+        //        Burialmains = buryQuery
+        //        .OrderBy(b => b.Id)
+        //        .Skip((pageNum - 1) * pageSize)
+        //        .Take(pageSize),
+
+        //        //---------here you digure out the information to fill the pageinfo model for pagination
+        //        PageInfo = new PageInfo
+        //        {
+        //            TotalNumBurials = buryQuery.Count(),
+        //            BurialsPerPage = pageSize,
+        //            CurrentPage = pageNum
+        //        }
+        //    };
+
+        //    return View(passInfo);
+        //}
+
+        public IActionResult InfoPage(int burid)
+        {
+            //---------this is where you accept the data that was passed in from the cards to display info on info page
+            Burialmain burialmain = context.Burialmain.FirstOrDefault(a => a.Id == burid);
+            if (burialmain == null)
+            {
+                return NotFound();
+            }
+            return View(burialmain);
+        }
+
+        //----------------------------
 
         public IActionResult DisplayPrediction()
         {

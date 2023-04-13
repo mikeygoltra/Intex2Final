@@ -26,6 +26,8 @@
 
 @foreach (Burialmain b in Model.Burialmains)
 {
-    <partial name="MummySummary" model="b"/>
+    <form method="get" class="formKiller">
+        <partial name="MummySummary" model="b"/>
+    </form>
 }
 
