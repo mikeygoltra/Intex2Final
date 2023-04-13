@@ -3,8 +3,31 @@
 }
 @model MummiesViewModel
 
+<div>
+    <form method="get">
+        <input type="text" class="p-2" value="Depth(m)" name="depthIn"/>
+        <input type="text" class="p-2" value="Age at Death" name="ageIn"/>
+
+        <select class="p-2" name="sexIn">
+            <option value="">Sex</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <select class="p-2" name="headIn">
+            <option value="">Head Direction</option>
+            <option value="W">West</option>
+            <option value="E">East</option>
+        </select>
+        <input type="hidden" name="Id" />
+        <button type="submit" class="p-2" asp-controller="Home" asp-action="Dashboard" asp-route-pageNum="">Filter</button>
+    </form>
+</div>
+
 @foreach (Burialmain b in Model.Burialmains)
 {
-    <partial name="MummySummary" model="b"/>
+    <form method="get" class="formKiller">
+        <partial name="MummySummary" model="b"/>
+    </form>
 }
 
