@@ -5,20 +5,22 @@
 }
 @model Burialmain
 
-<div class="card m-1 p-1 border-dark">
-    <div class="bg-opacity-75 p-1">
-        <h4 class="card-header">@Model.Area</h4>
-        <span class="badge bg-dark" style="float:right">Price: $@Model.Sex</span>
+<a href="@Url.Action("InfoPage", "Home", new { burid = Model.Id })">
+    <div class="card m-1 p-1 border-dark">
+        <div class="bg-opacity-75 p-1">
+            <h4 class="card-header">@Model.Area</h4>
+            <span class="badge bg-primary" style="float:right">Sex: $@Model.Sex</span>
 
+        </div>
+
+        <ul>
+            <li class="list-group-item">Author: @Model.Ageatdeath</li>
+            <li class="list-group-item">Publisher: @Model.Samplescollected</li>
+            @*<li class="list-group-item">ISBN: @Model.Isbn</li>
+            <li class="list-group-item">Classification: @Model.Classification</li>
+            <li class="list-group-item">Category: @Model.Category</li>
+            <li class="list-group-item">@Model.PageCount pages</li>*@
+
+        </ul>
     </div>
-
-    <ul>
-        <li class="list-group-item">Author: @Model.Ageatdeath</li>
-        <li class="list-group-item">Publisher: @Model.Samplescollected</li>
-        @*<li class="list-group-item">ISBN: @Model.Isbn</li>
-        <li class="list-group-item">Classification: @Model.Classification</li>
-        <li class="list-group-item">Category: @Model.Category</li>
-        <li class="list-group-item">@Model.PageCount pages</li>*@
-
-    </ul>
-</div>
+</a>

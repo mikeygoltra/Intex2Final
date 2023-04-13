@@ -8,9 +8,9 @@ namespace Intex2Final.Models.ViewModels
 {
     public class PageInfo
     {
-        public int TotalNumMummies { get; set; }
-        public int MummiesPerPage { get; set; }
+        public int TotalNumBurials { get; set; }
+        public int BurialsPerPage { get; set; }
         public int CurrentPage { get; set; }
-        public int TotalPages => (int) Math.Ceiling((double) TotalNumMummies / MummiesPerPage);
+        public int TotalPages => (int) Math.Ceiling((double)TotalNumBurials / BurialsPerPage);
     }
 }
