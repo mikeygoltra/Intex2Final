@@ -120,5 +120,10 @@ namespace Intex2Final.Controllers
             context.SaveChanges();
             return View("Confirmation");
         }
+
+        public IActionResult DisplayPrediction()
+        {
+            return View();
+        }
     }
 }
