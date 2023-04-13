@@ -4,13 +4,15 @@
     <title>Supervised Model - Head Direction</title>
     <style>
 
-        h2 {
+        p {
             font-size: 24px;
             font-weight: bold;
             text-align: center;
             color: #333333;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+            border: 1px solid black;
+            padding: 10px;
+            background-color: #f0f0f0;
         }
 
         label {
@@ -18,7 +20,7 @@
             margin-bottom: 5px;
         }
 
-        input[type="text"], textarea {
+        input[type="text"] {
             width: 50%;
             padding: 8px;
             border-radius: 5px;
@@ -41,16 +43,56 @@
             border-radius: 5px;
         }
 
+        textarea {
+            width: 300px;
+            height: 100px;
+            resize: none;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            font-size: 100px;
+            font-family: sans-serif;
+        }
+
+        label[for="outputData"] {
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        select {
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            color: #333333;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            select:hover {
+                background-color: #e5e5e5;
+            }
+
+            select:focus {
+                outline: none;
+                background-color: #ffffff;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+
 
 
     </style>
 </head>
 <body>
-    <h2>
+    <p>
         This page will take all of your inputs for each of these fields, and using the statistical model we have created through the mummy data, it will predict which direction
-        the head would be facing when excavated based on the attributes that the mummy was given below. Without a value in every single field, the prediction will not work.
-        So make sure to put a value in for every field!
-    </h2></br>
+        the head would be facing when excavated based on the attributes that the mummy was given below.
+    </p></br>
 
     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
         <label for="sexMale">Sex = Male:</label>
@@ -136,7 +178,7 @@
     </div>
     <div>
         <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; text-align: center;">
-            <label for="outputData" style="font-size: 20px;">PREDICTED DIRECTION:</label>
+            <label for="outputData" style="font-size: 20px;">PREDICTED HEAD DIRECTION:</label>
             <br>
             <textarea id="outputData" name="outputData" rows="10" cols="50" readonly style="font-size: 30px;"></textarea>
         </div>
@@ -191,9 +233,19 @@
                     if (predictedValue < 0.50) {
                         outputDataTextarea.textContent = "EAST";
                         outputDataTextarea.style.color = "green";
+                        outputDataTextarea.style.textTransform = "uppercase";
+                        outputDataTextarea.style.fontSize = "3rem";
+                        outputDataTextarea.style.fontWeight = "bold";
+                        outputDataTextarea.style.color = "#00bfff";
+
                     } else if (predictedValue >= 0.50) {
                         outputDataTextarea.textContent = "WEST";
                         outputDataTextarea.style.color = "blue";
+                        outputDataTextarea.style.textTransform = "uppercase";
+                        outputDataTextarea.style.fontSize = "3rem";
+                        outputDataTextarea.style.fontWeight = "bold";
+                        outputDataTextarea.style.color = "#00bfff";
+
                     }
                     outputDataTextarea.style.fontSize = "16px";
                     outputDataTextarea.style.fontWeight = "bold";
