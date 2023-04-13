@@ -69,3 +69,64 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+
+/*OUR styles-----------------------------------------
+    ------------------------------------------------
+*/
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(50, 50, 50, 0.5);
+    z-index: 1;
+}
+
+.txtOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-container {
+    width: 1200px; /* set the width of the container */
+    height: 600px; /* set the height of the container */
+    overflow: hidden; /* hide any overflow from the image */
+}
+
+.cropped-image {
+    width: 1200px; /* set the width of the image */
+    height: 900px; /* set the height of the image */
+    margin: 0 0 0 0; /* adjust the margins to crop the desired portion of the image */
+}
+
+
+.centerCenter
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.thrPicRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.picDiv {
+    width: 15rem;
+    height: 15rem;
+    margin: auto;
+    border-radius: 10px;
+}
