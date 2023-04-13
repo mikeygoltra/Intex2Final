@@ -1,0 +1,12 @@
+﻿@{
+}
+@model Burialmain
+
+<h2>Confirm deletion</h2>
+<h5>Are you sure you want to delete @Model.Id</h5>
+
+<form method="post" asp-action="Delete">
+    <input hidden asp-for="Id" />
+    <a asp-controller="Home" asp-action="Dashboard" class="btn btn-light">Cancel</a>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
