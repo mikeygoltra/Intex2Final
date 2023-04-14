@@ -4,22 +4,30 @@
 @{
 }
 @model Burialmain
+@*href="@Url.Action("InfoPage", "Home", new { burid = Model.Id })"*@
 
-<a href="@Url.Action("InfoPage", "Home", new { burid = Model.Id })">
+<a asp-controller="Home" asp-action="InfoPage" asp-route-burid="@Model.Id">
     <div class="card m-1 p-1 border-dark">
         <div class="bg-opacity-75 p-1">
-            <h4 class="card-header">@Model.Area</h4>
-            <span class="badge bg-primary" style="float:right">Sex: $@Model.Sex</span>
+            <h4 class="card-header">Mummy at: @Model.Northsouth-@Model.Squarenorthsouth, @Model.Eastwest-@Model.Squareeastwest</h4>
+            @if (Model.Sex == null || Model.Sex == "")
+            {
+                <span class="badge bg-danger text-white" style="float:right">Sex: Unknown</span>
+            }
+            else
+            {
+                <span class="badge bg-success text-white" style="float:right">Sex: @Model.Sex</span>
+            }
 
         </div>
 
         <ul>
-            <li class="list-group-item">Author: @Model.Ageatdeath</li>
-            <li class="list-group-item">Publisher: @Model.Samplescollected</li>
-            @*<li class="list-group-item">ISBN: @Model.Isbn</li>
-            <li class="list-group-item">Classification: @Model.Classification</li>
-            <li class="list-group-item">Category: @Model.Category</li>
-            <li class="list-group-item">@Model.PageCount pages</li>*@
+            <li class="list-group-item">Age At Death: @Model.Ageatdeath</li>
+            <li class="list-group-item">Hair: @Model.Hair</li>
+            <li class="list-group-item">Hair color: @Model.Haircolor</li>
+            <li class="list-group-item">Length: @Model.Length</li>
+            <li class="list-group-item">Preservation: @Model.Preservation</li>
+            <li class="list-group-item">Notes: @Model.Text</li>
 
         </ul>
     </div>

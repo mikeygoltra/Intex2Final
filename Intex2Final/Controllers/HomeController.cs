@@ -122,13 +122,44 @@ namespace Intex2Final.Controllers
             return View("Confirmation");
         }
 
-        public IActionResult MummiesView(int pageNum = 1)
+        //[HttpGet]
+        //public IActionResult MummiesView(int pageNum = 1)
+        //{
+        //    int pageSize = 5;
+
+        //    var x = new MummiesViewModel
+        //    {
+        //        Burialmains = context.Burialmain
+        //        .Skip((pageNum - 1) * pageSize)
+        //        .Take(pageSize),
+
+        //        PageInfo = new PageInfo
+        //        {
+        //            TotalNumBurials = (context.Burialmain.Count()),
+        //            BurialsPerPage = pageSize,
+        //            CurrentPage = pageNum,
+
+        //        }
+        //    };
+
+        //    return View(x);
+
+        //}
+
+
+        //[HttpPost]
+        public IActionResult MummiesView(string depth, string age, string sex, string headdir,  int pageNum = 1)
         {
             int pageSize = 5;
 
             var x = new MummiesViewModel
             {
                 Burialmains = context.Burialmain
+                .Where(b => b.Depth == depth || depth == null)
+                .Where(b => b.Ageatdeath == age || age == null)
+                .Where(b => b.Sex == sex || sex == null)
+                .Where(b=>b.Headdirection == headdir || headdir == null)
+                .OrderByDescending(b=> b.Id)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
@@ -145,58 +176,9 @@ namespace Intex2Final.Controllers
 
         }
 
-        //Maryn's code
-        //public IActionResult Dashboard(int pageNum = 1, string depthIn = null, string ageIn = null, string headIn = null, string sexIn = null)
-        //{
-        //    //List<Burialmain> burialList = context.Burialmain.ToList();
-        //    //ViewBag.Burialmain = burialList;
+     
 
-        //    //--------this is the filtering
-
-        //    var buryQuery = context.Burialmain.AsQueryable();
-
-        //    if (depthIn != null)
-        //    {
-        //        buryQuery = context.Burialmain.Where(b => b.Depth == depthIn);
-        //    }
-        //    if (ageIn != null)
-        //    {
-        //        buryQuery = context.Burialmain.Where(b => b.Ageatdeath == ageIn);
-        //    }
-        //    if (headIn != null)
-        //    {
-        //        buryQuery = context.Burialmain.Where(b => b.Headdirection == headIn);
-        //    }
-        //    if (sexIn != null)
-        //    {
-        //        buryQuery = context.Burialmain.Where(b => b.Sex == sexIn);
-        //    }
-
-
-        //    //--------------------------------------------------
-
-        //    // ---------Here you set the correct number of burials on each page
-        //    int pageSize = 5;
-        //    var passInfo = new MummyViewModel
-        //    {
-        //        Burialmains = buryQuery
-        //        .OrderBy(b => b.Id)
-        //        .Skip((pageNum - 1) * pageSize)
-        //        .Take(pageSize),
-
-        //        //---------here you digure out the information to fill the pageinfo model for pagination
-        //        PageInfo = new PageInfo
-        //        {
-        //            TotalNumBurials = buryQuery.Count(),
-        //            BurialsPerPage = pageSize,
-        //            CurrentPage = pageNum
-        //        }
-        //    };
-
-        //    return View(passInfo);
-        //}
-
-        public IActionResult InfoPage(int burid)
+        public IActionResult InfoPage(long burid)
         {
             //---------this is where you accept the data that was passed in from the cards to display info on info page
             Burialmain burialmain = context.Burialmain.FirstOrDefault(a => a.Id == burid);
