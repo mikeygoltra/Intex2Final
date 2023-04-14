@@ -177,3 +177,9 @@ body {
     height:20rem;
     background-color:lightgray;
 }
+
+.centerPage
+{
+    width:80%;
+    margin:auto;
+}
