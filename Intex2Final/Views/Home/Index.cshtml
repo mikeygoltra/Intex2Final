@@ -33,7 +33,7 @@
 </div>
 
 
-<div class="position-relative image-container-3 w-100">
+@*<div class="position-relative image-container-3 w-100">
     <img src="~/img/Texture2.png" class="img-fluid cropped-image">
     <div class="overlay txtOverlay centerCenter">
         <div>
@@ -41,9 +41,22 @@
             <h2 class="display-6 m-3">   Fag  El - Gamous</h2>
         </div>
     </div>
+</div>*@
+
+<div class="position-relative image-container-3 w-100">
+    <img src="~/img/Texture2.png" class="img-fluid cropped-image">
+    <div class="overlay txtOverlay centerCenter text-center">
+        <div>
+            <h1 class="display-4 m-3"> BYU at Fag El-Gamous</h1>
+            <h4 class="display-6 m-3">
+                Located in Egypt on the eastern edge of the Fayoum Depression,
+                lies the Fag El-Gamous cemetary. Since 1990, this site has been the heart of BYU excavasion
+                efforts to learn more about ancient Egyptian culture. The documented record of these excavations
+                have been recorded and here are displayed, analyzed, and updated.
+            </h4>
+        </div>
+    </div>
 </div>
-
-
 
 
 @*<div class="thrPicRow text-center" style="background-color:whitesmoke">
@@ -72,28 +85,28 @@
 
 <div class="thrPicRow text-center" style="margin-left: -100px">
     <div class="pivDiv" style="color:black">
-        <a>
+        <a asp-controller="Home" asp-action="Mummiesview">
             <h4 class="text-center">View Mummies</h4>
             <p class="text-center">Click here to view a list of burial sites and the information about the items found in these locations compiled by BYU archeologists and researchers .</p>
         </a>
     </div>
 
     <div class="pivDiv" style="color:black">
-        <a>
+        <a asp-controller="Home" asp-action="NewMummy">
            <h4> Add a Mummy</h4>
            <p>Click here to add another burial record to the BYU Fag El-Gamous database.</p>
         </a>
     </div>
 
     <div class="pivDiv" style="color:black">
-        <a>
+        <a asp-controller="Home" asp-action="Unsupervised">
             <h4>View Analytics</h4>
             <p>Click here to view an interactive analytical graph showing the comparision of body length and burial location.</p>
         </a>
     </div>
 
     <div class="pivDiv" style="color:black">
-         <a>
+         <a asp-controller="Home" asp-action="DisplayPrediction">
             <h4>Make a Prediction</h4>
             <p>Click here to enter new data points to make a prediction of the head direction of the predicted mummy based.</p>
         </a>

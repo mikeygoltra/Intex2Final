@@ -16,97 +16,100 @@
     }
 </style>
 
+<div class="m-5">
 
-<div class="center80Per">
-    
-    <h1 class="display-4">Make a Prediction</h1>
 
-    <p>
-        This page will take all of your inputs for each of these fields, and using the statistical model we have created through the mummy data, it will predict which direction
-        the head would be facing when excavated based on the attributes that the mummy was given below.
-    </p>
-    <br/>
-   @* <div class="row p-2">*@
-    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <div class="center80Per">
 
-        <div class="col">
-            <label for="sexMale">Sex = Male:</label>
-            <select id="sexMale" name="sexMale">
-                <option value="1">Yes/True</option>
-                <option value="0">No/False</option>
-            </select><br />
+        <h1 class="display-4">Make a Prediction</h1>
 
-            <label for="sexFemale">Sex = Female:</label>
-            <select id="sexFemale" name="sexFemale">
-                <option value="1">Yes/True</option>
-                <option value="0">No/False</option>
-            </select><br />
+        <p>
+            This page will take all of your inputs for each of these fields, and using the statistical model we have created through the mummy data, it will predict which direction
+            the head would be facing when excavated based on the attributes that the mummy was given below.
+        </p>
+        <br />
+        @* <div class="row p-2">*@
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
 
-            <label for="wrapping_S">Wrapping = S:</label>
-            <select id="wrapping_S" name="wrapping_S">
-                <option value="1">Yes/True</option>
-                <option value="0">No/False</option>
-            </select><br />
+            <div class="col">
+                <label for="sexMale">Sex = Male:</label>
+                <select id="sexMale" name="sexMale">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/False</option>
+                </select><br />
 
-            <label for="samplesCollected">Sample Collected = Unknown:</label>
-            <select id="samplesCollected" name="samplesCollected">
-                <option value="1">Yes/True</option>
-                <option value="0">No/True</option>
-            </select><br />
+                <label for="sexFemale">Sex = Female:</label>
+                <select id="sexFemale" name="sexFemale">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/False</option>
+                </select><br />
 
-            <label for="wrapping_B">Wrapping = B:</label>
-            <select id="wrapping_B" name="wrapping_B">
-                <option value="1">Yes/True</option>
-                <option value="0">No/True</option>
-            </select><br />
+                <label for="wrapping_S">Wrapping = S:</label>
+                <select id="wrapping_S" name="wrapping_S">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/False</option>
+                </select><br />
+
+                <label for="samplesCollected">Sample Collected = Unknown:</label>
+                <select id="samplesCollected" name="samplesCollected">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/True</option>
+                </select><br />
+
+                <label for="wrapping_B">Wrapping = B:</label>
+                <select id="wrapping_B" name="wrapping_B">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/True</option>
+                </select><br />
+            </div>
+
+            <div class="col">
+                <label for="ageAtDeath_C">Age at Death = Child:</label>
+                <select id="ageAtDeath_C" name="ageAtDeath_C">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/True</option>
+                </select><br />
+
+                <label for="samplesCollected_F">No Samples Collected:</label>
+                <select id="samplesCollected_F" name="samplesCollected_F">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/False</option>
+                </select><br />
+
+                <label for="wrapping_W">Wrapping = W:</label>
+                <select id="wrapping_W" name="wrapping_W">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/False</option>
+                </select><br />
+
+                <label for="area_SE">Area = SE:</label>
+                <select id="area_SE" name="area_SE">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/False</option>
+                </select><br />
+
+                <label for="wrapping_H">Wrapping = H:</label>
+                <select id="wrapping_H" name="wrapping_H">
+                    <option value="1">Yes/True</option>
+                    <option value="0">No/False</option>
+                </select>
+            </div>
         </div>
 
-        <div class="col">
-            <label for="ageAtDeath_C">Age at Death = Child:</label>
-            <select id="ageAtDeath_C" name="ageAtDeath_C">
-                <option value="1">Yes/True</option>
-                <option value="0">No/True</option>
-            </select><br />
 
-            <label for="samplesCollected_F">No Samples Collected:</label>
-            <select id="samplesCollected_F" name="samplesCollected_F">
-                <option value="1">Yes/True</option>
-                <option value="0">No/False</option>
-            </select><br />
 
-            <label for="wrapping_W">Wrapping = W:</label>
-            <select id="wrapping_W" name="wrapping_W">
-                <option value="1">Yes/True</option>
-                <option value="0">No/False</option>
-            </select><br />
-
-            <label for="area_SE">Area = SE:</label>
-            <select id="area_SE" name="area_SE">
-                <option value="1">Yes/True</option>
-                <option value="0">No/False</option>
-            </select><br />
-
-            <label for="wrapping_H">Wrapping = H:</label>
-            <select id="wrapping_H" name="wrapping_H">
-                <option value="1">Yes/True</option>
-                <option value="0">No/False</option>
-            </select>
+        <button onclick="performInference()">PREDICT</button>
+        <br />
+        <br />
+    </div>
+    <div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; text-align: center;">
+            <label for="outputData" style="font-size: 20px;">PREDICTED HEAD DIRECTION:</label>
+            <br>
+            <textarea id="outputData" name="outputData" rows="10" cols="50" readonly style="font-size: 30px;"></textarea>
         </div>
+
     </div>
-
-
-
-    <button onclick="performInference()">PREDICT</button>
-    <br />
-    <br />
-</div>
-<div>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; text-align: center;">
-        <label for="outputData" style="font-size: 20px;">PREDICTED HEAD DIRECTION:</label>
-        <br>
-        <textarea id="outputData" name="outputData" rows="10" cols="50" readonly style="font-size: 30px;"></textarea>
-    </div>
-
 </div>
 
     <script>
@@ -124,7 +127,7 @@
             const wrapping_H = parseFloat(document.getElementById('wrapping_H').value);
 
             // Define the API endpoint URL that we will use to grab the values we need from the API
-            const apiUrl = 'http://intex2app-env.eba-vrevi2vk.us-east-1.elasticbeanstalk.com/score';
+            const apiUrl = 'https://intex2.bello-net.work/score';
 
             // Define the request body based on what the user inputs to the forms (which are dropdowns)
             const requestBody = {

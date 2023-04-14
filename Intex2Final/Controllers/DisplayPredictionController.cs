@@ -21,7 +21,7 @@ namespace Intex2Final.Controllers
             // Make a call to the Swagger API to retrieve the data.
             using (var httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri("http://intex2app-env.eba-vrevi2vk.us-east-1.elasticbeanstalk.com/score");
+                httpClient.BaseAddress = new Uri("https://intex2.bello-net.work/score");
                 var response = await httpClient.GetAsync("/swagger/v1/swagger.json");
 
                 if (response.IsSuccessStatusCode)
