@@ -156,7 +156,7 @@ namespace Intex2Final.Controllers
         //[HttpPost]
         public IActionResult MummiesView(string depth, string age, string sex, string headdir,  int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 8;
 
             var x = new MummiesViewModel
             {

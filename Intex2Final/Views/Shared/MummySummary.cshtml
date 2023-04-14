@@ -9,25 +9,25 @@
 <a asp-controller="Home" asp-action="InfoPage" asp-route-burid="@Model.Id">
     <div class="card m-1 p-1 border-dark">
         <div class="bg-opacity-75 p-1">
-            <h4 class="card-header">Mummy at: @Model.Northsouth-@Model.Squarenorthsouth, @Model.Eastwest-@Model.Squareeastwest</h4>
+            <h4 class="card-header" style="color:#9b6e2b">Mummy at: @Model.Northsouth-@Model.Squarenorthsouth, @Model.Eastwest-@Model.Squareeastwest</h4>
             @if (Model.Sex == null || Model.Sex == "")
             {
-                <span class="badge bg-danger text-white" style="float:right">Sex: Unknown</span>
+                <span class="badge bg-danger text-white centerCenter badgeDim"><h6>Sex: Unknown</h6></span>
             }
             else
             {
-                <span class="badge bg-success text-white" style="float:right">Sex: @Model.Sex</span>
+                <span class="badge bg-success text-white centerCenter badgeDim"><h6>Sex: @Model.Sex</h6></span>
             }
 
         </div>
 
-        <ul>
-            <li class="list-group-item">Age At Death: @Model.Ageatdeath</li>
-            <li class="list-group-item">Hair: @Model.Hair</li>
-            <li class="list-group-item">Hair color: @Model.Haircolor</li>
-            <li class="list-group-item">Length: @Model.Length</li>
-            <li class="list-group-item">Preservation: @Model.Preservation</li>
-            <li class="list-group-item">Notes: @Model.Text</li>
+        <ul style="color:saddlebrown">
+            <li class="list-group-item m-r-3rem">Age At Death: @Model.Ageatdeath</li>
+            <li class="list-group-item m-r-3rem">Hair: @Model.Hair</li>
+            <li class="list-group-item m-r-3rem">Hair color: @Model.Haircolor</li>
+            <li class="list-group-item m-r-3rem">Length: @Model.Length</li>
+            <li class="list-group-item m-r-3rem">Preservation: @Model.Preservation</li>
+            <li class="list-group-item m-r-3rem" style="margin-bottom:1rem">Notes: @Model.Text</li>
 
         </ul>
     </div>
