@@ -154,7 +154,7 @@ namespace Intex2Final.Controllers
 
 
         //[HttpPost]
-        public IActionResult MummiesView(string depth, string age, string sex, string headdir,  int pageNum = 1)
+        public IActionResult MummiesView(string depth , string age , string sex, string headdir, int pageNum = 1)
         {
             int pageSize = 5;
 
@@ -164,8 +164,8 @@ namespace Intex2Final.Controllers
                 .Where(b => b.Depth == depth || depth == null)
                 .Where(b => b.Ageatdeath == age || age == null)
                 .Where(b => b.Sex == sex || sex == null)
-                .Where(b=>b.Headdirection == headdir || headdir == null)
-                .OrderByDescending(b=> b.Id)
+                .Where(b => b.Headdirection == headdir || headdir == null)
+                .OrderByDescending(b => b.Id)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
@@ -174,6 +174,11 @@ namespace Intex2Final.Controllers
                     TotalNumBurials = (context.Burialmain.Count()),
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum,
+
+                    Depth = depth,
+                    Age = age,
+                    Sex = sex,
+                    HeadDir = headdir
 
                 }
             };

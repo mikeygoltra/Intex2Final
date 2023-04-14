@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//pagination with ellipsis
+
 namespace Intex2Final.Infrastructure
 {
     [HtmlTargetElement("div", Attributes = "page-next")]
@@ -55,7 +57,7 @@ namespace Intex2Final.Infrastructure
                 {
                     TagBuilder tb = new TagBuilder("a");
 
-                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i, depth = PageNext.Depth, age = PageNext.Age, sex = PageNext.Sex, headdir = PageNext.HeadDir });
 
                     if (PageClassEnabled)
                     {
@@ -85,6 +87,107 @@ namespace Intex2Final.Infrastructure
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//original Pagination without ellipsis
 
 //namespace Intex2Final.Infrastructure
 //{
