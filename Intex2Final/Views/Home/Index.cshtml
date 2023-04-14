@@ -4,7 +4,7 @@
 
 @*Alert for GDPS consent cookie notification*@
 <div id="myAlert" class="alert alert-info">
-    In order to comply with GDPR, click one of one of the buttons below to consent to cookies.
+    In order to comply with GDPR, click one of these buttons to consent to cookies.
     <button id="acceptButton" class="btn btn-success">Accept</button>
     <button id="rejectButton" class="btn btn-danger">Reject</button>
 </div>
@@ -42,7 +42,15 @@
         </div>
     </div>
 </div>*@
-
+<style>
+    .thrPicRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        margin: 2rem;
+    }
+</style>
 <div class="position-relative image-container-3 w-100">
     <img src="~/img/Texture2.png" class="img-fluid cropped-image">
     <div class="overlay txtOverlay centerCenter text-center">
@@ -50,7 +58,7 @@
             <h1 class="display-4 m-3"> BYU at Fag El-Gamous</h1>
             <h4 class="display-6 m-3">
                 Located in Egypt on the eastern edge of the Fayoum Depression,
-                lies the Fag El-Gamous cemetary. Since 1990, this site has been the heart of BYU excavasion
+                lies the Fag El-Gamous cemetery. Since 1990, this site has been the heart of BYU excavation
                 efforts to learn more about ancient Egyptian culture. The documented record of these excavations
                 have been recorded and here are displayed, analyzed, and updated.
             </h4>
@@ -62,19 +70,19 @@
 @*<div class="thrPicRow text-center" style="background-color:whitesmoke">
         <div class="m-5">
             <a asp-controller="Home" asp-action="Mummiesview">
-                <img src="~/img/SkullCropped.jpg" class="picDiv"/>
+                <img src="wwwroot/img/SkullCropped.jpg" class="picDiv"/>
                 <h5 style="color:darkslategrey">View Mummies</h5>
             </a>
         </div>
         <div class="m-5">
             <a asp-controller="Home" asp-action="NewMummy">
-                <img src="~/img/wrap2Cropped.jpg" class="picDiv"/>
+                <img src="wwwroot/img/wrap2Cropped.jpg" class="picDiv"/>
                 <h5 style="color:darkslategrey">Add Mummies</h5>
             </a>
         </div>
         <div class="m-5">
             <a asp-controller="Home" asp-action="Unsupervised">
-                <img src="~/img/Mummy.jpg" class="picDiv"/>
+                <img src="wwroot/img/Mummy.jpg" class="picDiv"/>
                 <div>
                     <a asp-action="Unsupervised"><h5 style="color:darkslategrey">View Analytics</h5></a>
                     <a asp-action="DisplayPrediction"><h5 style="color:darkslategrey">Prediction</h5></a>
@@ -83,32 +91,32 @@
         </div> 
 </div>*@
 
-<div class="thrPicRow text-center" style="margin-left: -100px">
-    <div class="pivDiv" style="color:black">
+<div class="row p-3 text-center m-5" style="color:black">
+    <div class="pivDiv col" style="color:black">
         <a asp-controller="Home" asp-action="Mummiesview">
-            <h4 class="text-center">View Mummies</h4>
-            <p class="text-center">Click here to view a list of burial sites and the information about the items found in these locations compiled by BYU archeologists and researchers .</p>
+            <h4 class="text-center" style="color:black">View Mummies</h4>
+            <p class="text-center" style="color:black">Click here to view a list of burial sites and the information about the items found in these locations compiled by BYU archeologists and researchers .</p>
         </a>
     </div>
 
-    <div class="pivDiv" style="color:black">
+    <div class="pivDiv col" style="color:black">
         <a asp-controller="Home" asp-action="NewMummy">
-           <h4> Add a Mummy</h4>
-           <p>Click here to add another burial record to the BYU Fag El-Gamous database.</p>
+           <h4 style="color:black"> Add a Mummy</h4>
+           <p style="color:black">Click here to add another burial record to the BYU Fag El-Gamous database.</p>
         </a>
     </div>
 
-    <div class="pivDiv" style="color:black">
+    <div class="pivDiv col" style="color:black">
         <a asp-controller="Home" asp-action="Unsupervised">
-            <h4>View Analytics</h4>
-            <p>Click here to view an interactive analytical graph showing the comparision of body length and burial location.</p>
+            <h4 style="color:black">View Analytics</h4>
+            <p style="color:black">Click here to view an interactive analytical graph showing the comparision of body length and burial location.</p>
         </a>
     </div>
 
-    <div class="pivDiv" style="color:black">
+    <div class="pivDiv col" style="color:black">
          <a asp-controller="Home" asp-action="DisplayPrediction">
-            <h4>Make a Prediction</h4>
-            <p>Click here to enter new data points to make a prediction of the head direction of the predicted mummy based.</p>
+            <h4 style="color:black">Make a Prediction</h4>
+            <p style="color:black">Click here to enter new data points to make a prediction of the head direction of the predicted mummy based.</p>
         </a>
     </div>
 </div>

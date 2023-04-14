@@ -27,13 +27,14 @@
             <a asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="1" class="btn btn-outline-dark">Clear Filters</a>
         </form>
     </div>
-
-    @foreach (Burialmain b in Model.Burialmains)
-    {
-        <form method="get" class="formKiller">
-            <partial name="MummySummary" model="b"/>
-        </form>
-    }
+    <div class="card-mummy">
+        @foreach (Burialmain b in Model.Burialmains)
+        {
+            <form method="get" class="formKiller">
+                <partial name="MummySummary" model="b" />
+            </form>
+        }
+    </div>
 
 <div page-next="@Model.PageInfo" page-action="MummiesView" page-class="btn"
      page-class-selected="btn-primary" class="btn-group pull-right m-1" style=" display: flex; justify-content: center;"></div>
