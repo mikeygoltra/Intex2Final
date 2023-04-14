@@ -12,7 +12,7 @@
             <h4 class="card-header" style="color:#9b6e2b">Mummy at: @Model.Northsouth-@Model.Squarenorthsouth, @Model.Eastwest-@Model.Squareeastwest</h4>
             @if (Model.Sex == null || Model.Sex == "")
             {
-                <span class="badge bg-danger text-white centerCenter badgeDim"><h6>Sex: Unknown</h6></span>
+                <span class="btn btn-outline-danger text-danger centerCenter badgeDim"><h6>Sex: Unknown</h6></span>
             }
             else
             {
@@ -21,13 +21,13 @@
 
         </div>
 
-        <ul style="color:saddlebrown">
-            <li class="list-group-item m-r-3rem">Age At Death: @Model.Ageatdeath</li>
-            <li class="list-group-item m-r-3rem">Hair: @Model.Hair</li>
-            <li class="list-group-item m-r-3rem">Hair color: @Model.Haircolor</li>
-            <li class="list-group-item m-r-3rem">Length: @Model.Length</li>
-            <li class="list-group-item m-r-3rem">Preservation: @Model.Preservation</li>
-            <li class="list-group-item m-r-3rem" style="margin-bottom:1rem">Notes: @Model.Text</li>
+        <ul style="color:saddlebrown" >
+            <li class="list-group-item m-r-3rem">Age At Death:<b> @Model.Ageatdeath</b></li>
+            <li class="list-group-item m-r-3rem">Head Direction:<b> @Model.Headdirection</b></li>
+            <li class="list-group-item m-r-3rem">Depth:<b> @Model.Depth</b></li>
+            <li class="list-group-item m-r-3rem">Length:<b> @Model.Length</b></li>
+            <li class="list-group-item m-r-3rem">Preservation:<b> @Model.Preservation</b></li>
+            <li class="list-group-item m-r-3rem" style="margin-bottom:1rem">Notes:<b> @Model.Text</b></li>
 
         </ul>
     </div>

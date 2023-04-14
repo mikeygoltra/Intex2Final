@@ -17,6 +17,13 @@ namespace Intex2Final.Models.ViewModels
         public string Sex { get; set; }
         public string Headdir { get; set; }
         public int TotalPages => (int) Math.Ceiling((double)TotalNumBurials / BurialsPerPage);
+
+        //public string Depth { get; set; }
+
+        //public string Age { get; set; }
+
+        //public string Sex { get; set; }
+
         public string HeadDir { get; set; }
     }
 }
