@@ -169,6 +169,11 @@ namespace Intex2Final.Controllers
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum,
 
+                    Depth = depth,
+                    Age = age,
+                    Sex = sex,
+                    Headdir = headdir,
+
                 }
             };
 

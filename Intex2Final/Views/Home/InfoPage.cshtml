@@ -12,9 +12,11 @@
 <p>West to Feet: @Model.Westtofeet</p>
 <p>Burial Number: @Model.Burialnumber</p>
 <p>Cluster Number: @Model.Clusternumber</p>
-<p>Shaft Number: @Model.Shaftnumber</p><br />
+<p>Shaft Number: @Model.Shaftnumber</p>
+<br />
 
 <h3>Mummy Details</h3>
+
 <p>Head Direction: @Model.Headdirection</p>
 <p>Sex: @Model.Sex</p>
 <p>Hair: @Model.Hair</p>
@@ -22,14 +24,16 @@
 <p>Length: @Model.Length</p>
 <p>Preservation: @Model.Preservation</p>
 <p>Adult sub-Adult: @Model.Adultsubadult</p>
-<p>Age at Death: @Model.Ageatdeath</p><br />
+<p>Age at Death: @Model.Ageatdeath</p>
+<br />
 
 <h3>Mummification details</h3>
 <p>Face Bundles: @Model.Facebundles</p>
 <p>Goods: @Model.Goods</p>
 <p>Wrappings: @Model.Wrapping</p>
 <p>Samples collected: @Model.Samplescollected</p>
-<p>Burial Materials: @Model.Burialmaterials</p><br />
+<p>Burial Materials: @Model.Burialmaterials</p>
+<br />
 
 <h3>Excavation details</h3>
 <p>Fieldbook Page: @Model.Fieldbookpage</p>
@@ -37,9 +41,10 @@
 <p>Date of Excavation: @Model.Dateofexcavation</p>
 <p>Data Expert Initials: @Model.Dataexpertinitials</p>
 <p>Excavation Recorder: @Model.Excavationrecorder</p>
-<p>Text: @Model.Text</p><br />
+<p>Text: @Model.Text</p>
+<br />
 
 <a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Id">Edit Mummy</a>
-<a class="btn btn-danger"  asp-controller="Home" asp-action="Delete" asp-route-id="@Model.Id">Delete Mummy</a>
+<a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@Model.Id">Delete Mummy</a>
 
 @*Display all the info for the Burialmain class here*@
