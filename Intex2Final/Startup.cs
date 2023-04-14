@@ -13,6 +13,7 @@ using Microsoft.ML.OnnxRuntime;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,12 +21,14 @@ namespace Intex2Final
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            _env = environment;
         }
-
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment => _env;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -41,7 +44,9 @@ namespace Intex2Final
 
 
             services.AddSingleton<InferenceSession>(
-               new InferenceSession("Data/test.onnx")
+                new InferenceSession(
+                    Path.Combine(_env.ContentRootPath, "wwwroot", "test.onnx")
+                )
             );
 
             var authConnectionString = Configuration["ConnectionStrings:AuthLink"];

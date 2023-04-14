@@ -52,6 +52,7 @@ namespace Intex2Final.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult NewMummy()
         {
@@ -66,6 +67,7 @@ namespace Intex2Final.Controllers
             return View(new Burialmain());
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult NewMummy(Burialmain bm)
         {
@@ -85,6 +87,7 @@ namespace Intex2Final.Controllers
                     
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Edit (long id)
         {
@@ -94,6 +97,7 @@ namespace Intex2Final.Controllers
             return View("NewMummy", mummy);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(Burialmain update)
         {
@@ -104,6 +108,7 @@ namespace Intex2Final.Controllers
             return View("Confirmation");
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Delete (long id)
         {
@@ -112,6 +117,7 @@ namespace Intex2Final.Controllers
             return View(mummy);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(Burialmain bm)
         {
@@ -168,6 +174,11 @@ namespace Intex2Final.Controllers
                     TotalNumBurials = (context.Burialmain.Count()),
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum,
+
+                    Depth = depth,
+                    Age = age,
+                    Sex = sex,
+                    Headdir = headdir,
 
                 }
             };
