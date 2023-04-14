@@ -22,7 +22,9 @@
 </div>
 
 
-<div class="thrPicRow text-center" style="background-color:whitesmoke">
+
+
+@*<div class="thrPicRow text-center" style="background-color:whitesmoke">
         <div class="m-5">
             <a asp-controller="Home" asp-action="Mummiesview">
                 <img src="~/img/SkullCropped.jpg" class="picDiv"/>
@@ -43,8 +45,40 @@
                     <a asp-action="DisplayPrediction"><h5 style="color:darkslategrey">Prediction</h5></a>
                 </div>
             </a>
-        </div>
+        </div> 
+</div>*@
+
+<div class="thrPicRow text-center" style="margin-left: -100px">
+    <div class="pivDiv" style="color:black">
+        <a>
+            <h4 class="text-center">View Mummies</h4>
+            <p class="text-center">Click here to view a list of burial sites and the information about the items found in these locations compiled by BYU archeologists and researchers .</p>
+        </a>
+    </div>
+
+    <div class="pivDiv" style="color:black">
+        <a>
+           <h4> Add a Mummy</h4>
+           <p>Click here to add another burial record to the BYU Fag El-Gamous database.</p>
+        </a>
+    </div>
+
+    <div class="pivDiv" style="color:black">
+        <a>
+            <h4>View Analytics</h4>
+            <p>Click here to view an interactive analytical graph showing the comparision of body length and burial location.</p>
+        </a>
+    </div>
+
+    <div class="pivDiv" style="color:black">
+         <a>
+            <h4>Make a Prediction</h4>
+            <p>Click here to enter new data points to make a prediction of the head direction of the predicted mummy based.</p>
+        </a>
+    </div>
 </div>
+
+
 
 <div class="position-relative image-container-2 w-100">
     <img src="~/img/Hills.jpg" class="img-fluid cropped-image">
