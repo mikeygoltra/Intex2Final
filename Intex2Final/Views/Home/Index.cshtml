@@ -2,29 +2,66 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <div class="position-relative image-container">
-        <img src="~/img/fagelgamous.jpg" class="img-fluid cropped-image">
-        <div class="overlay txtOverlay centerCenter">
+<div class="position-relative image-container w-100">
+    <img src="~/img/fagelgamous.jpg" class="img-fluid cropped-image">
+    <div class="overlay txtOverlay centerCenter">
+        <h1 class="display-3 m-3"> F | E | G </h1>
+        <h2 class="display-6 m-3">   Fag  El - Gamous</h2>
+    </div>
+</div>
+
+@*<div class="greyPanel centerCenter w-100">
+    <img src="~/img/Texture2.png"/>
+    <div class="txtOverlay centerCenter">
+        <div>
             <h1 class="display-3 m-3"> F | E | G </h1>
-            <br />
             <h2 class="display-6 m-3" style="">   Fag  El - Gamous</h2>
         </div>
+    </div>
+</div>*@
+
+
+<div class="position-relative image-container-3 w-100">
+    <img src="~/img/Texture2.png" class="img-fluid cropped-image">
+    <div class="overlay txtOverlay centerCenter">
+        <div>
+            <h1 class="display-3 m-3"> F | E | G </h1>
+            <h2 class="display-6 m-3">   Fag  El - Gamous</h2>
+            </div>
     </div>
 </div>
 
 
-<div class="thrPicRow text-center">
-        <a asp-controller="Home" asp-action="Mummiesview">
-            <img src="~/img/churchLogo.jpg" class="picDiv"/>
-            <h5>The Church of Jesus Christ</h5>
-        </a>
-        <a href="https://www.josephsmithpapers.org/" target="_blank">
-            <img src="~/img/jsPapers2.jpg" class="picDiv"/>
-            <h5>Joseph Smith Papers</h5>
-        </a>
-        <a href="https://www.churchofjesuschrist.org/media/video/2017-01-0100-ask-of-god-joseph-smiths-first-vision?lang=eng" target="_blank">
-            <img src="~/img/firstVision.jpg" class="picDiv"/>
-            <h5>First Vision Video</h5>
-        </a>
+<div class="thrPicRow text-center" style="background-color:whitesmoke">
+        <div class="m-5">
+            <a asp-controller="Home" asp-action="Mummiesview">
+                <img src="~/img/SkullCropped.jpg" class="picDiv"/>
+                <h5>View Mummies</h5>
+            </a>
+        </div>
+        <div class="m-5">
+            <a asp-controller="Home" asp-action="NewMummy">
+                <img src="~/img/wrap2Cropped.jpg" class="picDiv"/>
+                <h5>Add Mummies</h5>
+            </a>
+        </div>
+        <div class="m-5">
+            <a asp-controller="Home" asp-action="Unsupervised">
+                <img src="~/img/Mummy.jpg" class="picDiv"/>
+                <div>
+                    <h5>View Analytics</h5>
+                    <h5>Prediction</h5>
+                </div>
+            </a>
+        </div>
+</div>
+
+<div class="position-relative image-container-2 w-100">
+    <img src="~/img/Hills.jpg" class="img-fluid cropped-image">
+    <div class="overlay txtOverlay centerCenter">
+        <div>
+            <h1 class="display-3 m-3"> F | E | G </h1>
+            <h2 class="display-6 m-3" style="">   Fag  El - Gamous</h2>
+        </div>
+    </div>
 </div>
