@@ -210,9 +210,34 @@ body {
     margin-left:3rem;
 }
 
+.m-t-3rem 
+{
+    margin-top: 1rem;
+}
+
 .list-group-m-b-1{
     margin-bottom: 1rem;
     border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
 }
 
+.divOutline
+{
+    border-block:solid;
+    border-block-color:grey
+}
+
+.line {
+    border-top: 1px solid black;
+}
+
+.center60Per 
+{
+    width: 60%;
+    margin: auto;
+}
+
+.center80Per {
+    width: 80%;
+    margin-left: 20%;
+}

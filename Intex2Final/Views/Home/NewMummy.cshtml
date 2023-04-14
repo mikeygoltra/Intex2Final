@@ -2,15 +2,19 @@
 }
 @model Intex2Final.Models.Burialmain
 
+@* 
+ class="border border-dark rounded"*@
+
+ <h3 class="display-4 text-center p-2">Add a Mummy</h3>
+
  
- 
-<div>
-    <form class="border border-dark rounded " method="post">
+<div class="center80Per">
+    <form method="post">
         <div class="text-danger" asp-validation-summary="All"></div>
 
         <div class="row p-2">
             <div class="col">
-                <h3>Add a Mummy</h3>
+                
 
                 <input asp-for="Id" hidden value="@ViewBag.id" />
 
@@ -181,10 +185,10 @@
 
                 <label asp-for="Shaftnumber">Shaft Number</label>
                 <input asp-for="Shaftnumber" /><br />
-                <button class="btn btn-success" type="submit">Submit record</button>
 
             </div>
         </div>
+        <button class="btn btn-success" type="submit" style="">Submit record</button>
     </form>
 </div>
 

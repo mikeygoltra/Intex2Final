@@ -1,53 +1,59 @@
 ﻿@model Burialmain
-<div>
-    <h1>Mummy discovered at @Model.Northsouth-@Model.Squarenorthsouth, @Model.Eastwest-@Model.Squareeastwest</h1>
+<div class="center60Per">
+    <h1 class="text-center display-4" style="color:#9b6e2b">Mummy Discovered at @Model.Northsouth-@Model.Squarenorthsouth, @Model.Eastwest-@Model.Squareeastwest</h1>
+    <h4 class="text-center">Mummy ID: @Model.Id</h4>
 
-    <div>
-
-        <div>
-            <h4>Mummy ID: @Model.Id</h4>
-
-            <h3>Location</h3>
-            <p>Area: @Model.Area</p>
-            <p>Depth: @Model.Depth</p>
-            <p>South to Feet: @Model.Southtofeet</p>
-            <p>South to Head: @Model.Southtohead</p>
-            <p>West to Head: @Model.Westtohead</p>
-            <p>West to Feet: @Model.Westtofeet</p>
-            <p>Burial Number: @Model.Burialnumber</p>
-            <p>Cluster Number: @Model.Clusternumber</p>
-            <p>Shaft Number: @Model.Shaftnumber</p><br />
+    <div class="card-mummy ">
+        <div class="line m-2">
+            <div>
+                <h3 class="m-t-3rem">Location</h3>
+                <p>Area: <b>@Model.Area</b></p>
+                <p>Depth: <b>@Model.Depth</b></p>
+                <p>South to Feet: <b>@Model.Southtofeet</b></p>
+                <p>South to Head: <b>@Model.Southtohead</b></p>
+                <p>West to Head: <b>@Model.Westtohead</b></p>
+                <p>West to Feet: <b>@Model.Westtofeet</b></p>
+                <p>Burial Number: <b>@Model.Burialnumber</b></p>
+                <p>Cluster Number: <b>@Model.Clusternumber</b></p>
+                <p>Shaft Number: <b>@Model.Shaftnumber</b></p><br />
+            </div>
         </div>
-        <div>
-            <h3>Mummy Details</h3>
-            <p>Head Direction: @Model.Headdirection</p>
-            <p>Sex: @Model.Sex</p>
-            <p>Hair: @Model.Hair</p>
-            <p>Hair Color: @Model.Haircolor</p>
-            <p>Length: @Model.Length</p>
-            <p>Preservation: @Model.Preservation</p>
-            <p>Adult sub-Adult: @Model.Adultsubadult</p>
-            <p>Age at Death: @Model.Ageatdeath</p><br />
+        <div class="line m-2">
+            <div>
+                <h3 class="m-t-3rem">Mummy Details</h3>
+                <p>Head Direction: <b>@Model.Headdirection</b></p>
+                <p>Sex: <b>@Model.Sex</b></p>
+                <p>Hair: <b>@Model.Hair</b></p>
+                <p>Hair Color: <b>@Model.Haircolor</b></p>
+                <p>Length: <b>@Model.Length</b></p>
+                <p>Preservation: <b>@Model.Preservation</b></p>
+                <p>Adult sub-Adult: <b>@Model.Adultsubadult</b></p>
+                <p>Age at Death: <b>@Model.Ageatdeath</b></p><br />
+            </div>
         </div>
-        <div>
-            <h3>Mummification details</h3>
-            <p>Face Bundles: @Model.Facebundles</p>
-            <p>Goods: @Model.Goods</p>
-            <p>Wrappings: @Model.Wrapping</p>
-            <p>Samples collected: @Model.Samplescollected</p>
-            <p>Burial Materials: @Model.Burialmaterials</p><br />
+        <div class="line m-2">
+            <div>
+                <h3 class="m-t-3rem">Mummification details</h3>
+                <p>Face Bundles: <b>@Model.Facebundles</b></p>
+                <p>Goods: <b>@Model.Goods</b></p>
+                <p>Wrappings: <b>@Model.Wrapping</b></p>
+                <p>Samples collected: <b>@Model.Samplescollected</b></p>
+                <p>Burial Materials: <b>@Model.Burialmaterials</b></p><br />
+            </div>
         </div>
-        <div>
-            <h3>Excavation details</h3>
-            <p>Fieldbook Page: @Model.Fieldbookpage</p>
-            <p>Fieldbook Excavation Year: @Model.Fieldbookexcavationyear</p>
-            <p>Date of Excavation: @Model.Dateofexcavation</p>
-            <p>Data Expert Initials: @Model.Dataexpertinitials</p>
-            <p>Excavation Recorder: @Model.Excavationrecorder</p>
-            <p>Text: @Model.Text</p><br />
+        <div class="line m-2">
+            <div>
+                <h3 class="m-t-3rem">Excavation details</h3>
+                <p>Fieldbook Page: <b>@Model.Fieldbookpage</b></p>
+                <p>Fieldbook Excavation Year: <b>@Model.Fieldbookexcavationyear</b></p>
+                <p>Date of Excavation: <b>@Model.Dateofexcavation</b></p>
+                <p>Data Expert Initials: <b>@Model.Dataexpertinitials</b></p>
+                <p>Excavation Recorder: <b>@Model.Excavationrecorder</b></p>
+                <p>Text: <b>@Model.Text</b></p><br />
+            </div>
         </div>
     
-            <a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Id">Edit Mummy</a>
+            <a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Id">Edit Mummy</a>
             <a class="btn btn-danger"  asp-controller="Home" asp-action="Delete" asp-route-id="@Model.Id">Delete Mummy</a>
     </div>
 
