@@ -1,101 +1,113 @@
 ﻿
+<style>
+    p {
+      border: 2px solid #333;
+      padding: 20px;
+      border-radius: 7px;
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      text-align: justify;
+      text-justify: inter-word;
+      background-color: #f7f7f7;
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+
+<div class="center80Per">
+    
+    <h1 class="display-4">Make a Prediction</h1>
+
     <p>
         This page will take all of your inputs for each of these fields, and using the statistical model we have created through the mummy data, it will predict which direction
         the head would be facing when excavated based on the attributes that the mummy was given below.
     </p>
-    </br>
-
-    @*Each of the optionst that a user can input to make the prediction of the head direction based on those variables entered*@
+    <br/>
+   @* <div class="row p-2">*@
     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <label for="sexMale">Sex = Male:</label>
-        <select id="sexMale" name="sexMale">
-            <option value="1">Yes/True</option>
-            <option value="0">No/False</option>
-        </select>
 
-        <label for="sexFemale">Sex = Female:</label>
-        <select id="sexFemale" name="sexFemale">
-            <option value="1">Yes/True</option>
-            <option value="0">No/False</option>
-        </select>
+        <div class="col">
+            <label for="sexMale">Sex = Male:</label>
+            <select id="sexMale" name="sexMale">
+                <option value="1">Yes/True</option>
+                <option value="0">No/False</option>
+            </select><br />
 
-        <label for="wrapping_S">Wrapping = S:</label>
-        <select id="wrapping_S" name="wrapping_S">
-            <option value="1">Yes/True</option>
-            <option value="0">No/False</option>
-        </select>
+            <label for="sexFemale">Sex = Female:</label>
+            <select id="sexFemale" name="sexFemale">
+                <option value="1">Yes/True</option>
+                <option value="0">No/False</option>
+            </select><br />
 
-        <label for="samplesCollected">Sample Collected = Unknown:</label>
-        <select id="samplesCollected" name="samplesCollected">
-            <option value="1">Yes/True</option>
-            <option value="0">No/True</option>
-        </select>
+            <label for="wrapping_S">Wrapping = S:</label>
+            <select id="wrapping_S" name="wrapping_S">
+                <option value="1">Yes/True</option>
+                <option value="0">No/False</option>
+            </select><br />
 
-        <label for="wrapping_B">Wrapping = B:</label>
-        <select id="wrapping_B" name="wrapping_B">
-            <option value="1">Yes/True</option>
-            <option value="0">No/True</option>
-        </select>
+            <label for="samplesCollected">Sample Collected = Unknown:</label>
+            <select id="samplesCollected" name="samplesCollected">
+                <option value="1">Yes/True</option>
+                <option value="0">No/True</option>
+            </select><br />
 
-        <label for="ageAtDeath_C">Age at Death = Child:</label>
-        <select id="ageAtDeath_C" name="ageAtDeath_C">
-            <option value="1">Yes/True</option>
-            <option value="0">No/True</option>
-        </select>
+            <label for="wrapping_B">Wrapping = B:</label>
+            <select id="wrapping_B" name="wrapping_B">
+                <option value="1">Yes/True</option>
+                <option value="0">No/True</option>
+            </select><br />
+        </div>
 
-        <label for="samplesCollected_F">No Samples Collected:</label>
-        <select id="samplesCollected_F" name="samplesCollected_F">
-            <option value="1">Yes/True</option>
-            <option value="0">No/False</option>
-        </select>
+        <div class="col">
+            <label for="ageAtDeath_C">Age at Death = Child:</label>
+            <select id="ageAtDeath_C" name="ageAtDeath_C">
+                <option value="1">Yes/True</option>
+                <option value="0">No/True</option>
+            </select><br />
 
-        <label for="wrapping_W">Wrapping = W:</label>
-        <select id="wrapping_W" name="wrapping_W">
-            <option value="1">Yes/True</option>
-            <option value="0">No/False</option>
-        </select>
+            <label for="samplesCollected_F">No Samples Collected:</label>
+            <select id="samplesCollected_F" name="samplesCollected_F">
+                <option value="1">Yes/True</option>
+                <option value="0">No/False</option>
+            </select><br />
 
-        <label for="area_SE">Area = SE:</label>
-        <select id="area_SE" name="area_SE">
-            <option value="1">Yes/True</option>
-            <option value="0">No/False</option>
-        </select>
+            <label for="wrapping_W">Wrapping = W:</label>
+            <select id="wrapping_W" name="wrapping_W">
+                <option value="1">Yes/True</option>
+                <option value="0">No/False</option>
+            </select><br />
 
-        <label for="wrapping_H">Wrapping = H:</label>
-        <select id="wrapping_H" name="wrapping_H">
-            <option value="1">Yes/True</option>
-            <option value="0">No/False</option>
-        </select>
+            <label for="area_SE">Area = SE:</label>
+            <select id="area_SE" name="area_SE">
+                <option value="1">Yes/True</option>
+                <option value="0">No/False</option>
+            </select><br />
+
+            <label for="wrapping_H">Wrapping = H:</label>
+            <select id="wrapping_H" name="wrapping_H">
+                <option value="1">Yes/True</option>
+                <option value="0">No/False</option>
+            </select>
+        </div>
     </div>
 
-    <style>
-        label {
-            margin-right: 5px;
-            font-weight: bold;
-        }
-
-        select {
-            margin-right: 10px;
-            border: 1px solid #ccc;
-            padding: 5px;
-            border-radius: 5px;
-        }
-    </style>
 
 
     <button onclick="performInference()">PREDICT</button>
-    </br>
-    </br>
+    <br />
+    <br />
+</div>
+<div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; text-align: center;">
+        <label for="outputData" style="font-size: 20px;">PREDICTED HEAD DIRECTION:</label>
+        <br>
+        <textarea id="outputData" name="outputData" rows="10" cols="50" readonly style="font-size: 30px;"></textarea>
     </div>
-    <div>
-        @*Output of the prediction based on the variables passed to the API*@
-        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; text-align: center;">
-            <label for="outputData" style="font-size: 20px;">PREDICTED HEAD DIRECTION:</label>
-            <br>
-            <textarea id="outputData" name="outputData" rows="10" cols="50" readonly style="font-size: 30px;"></textarea>
-        </div>
 
-    </div>
+</div>
 
     <script>
         function performInference() {
