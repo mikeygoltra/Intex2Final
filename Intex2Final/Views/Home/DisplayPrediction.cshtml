@@ -96,7 +96,6 @@
 
 
 
-
     <button onclick="performInference()">PREDICT</button>
     <br />
     <br />
@@ -124,10 +123,10 @@
             const area_SE = parseFloat(document.getElementById('area_SE').value);
             const wrapping_H = parseFloat(document.getElementById('wrapping_H').value);
 
-            // Define the API endpoint URL
+            // Define the API endpoint URL that we will use to grab the values we need from the API
             const apiUrl = 'http://intex2app-env.eba-vrevi2vk.us-east-1.elasticbeanstalk.com/score';
 
-            // Define the request body
+            // Define the request body based on what the user inputs to the forms (which are dropdowns)
             const requestBody = {
                 "sexMale": sexMale,
                 "sexFemale": sexFemale,

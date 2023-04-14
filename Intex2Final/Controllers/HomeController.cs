@@ -52,6 +52,7 @@ namespace Intex2Final.Controllers
             return View();
         }
 
+        //FOR CREATING A NEW MUMMY THAT HAS NEW INFO
         [Authorize]
         [HttpGet]
         public IActionResult NewMummy()
@@ -67,6 +68,7 @@ namespace Intex2Final.Controllers
             return View(new Burialmain());
         }
 
+        
         [Authorize]
         [HttpPost]
         public IActionResult NewMummy(Burialmain bm)
@@ -87,6 +89,7 @@ namespace Intex2Final.Controllers
                     
         }
 
+        //FOR EDITING RECORDS
         [Authorize]
         [HttpGet]
         public IActionResult Edit (long id)
@@ -156,6 +159,7 @@ namespace Intex2Final.Controllers
         //[HttpPost]
         public IActionResult MummiesView(string depth , string age , string sex, string headdir, int pageNum = 1)
         {
+            //THIS IS FOR PAGINATION!
             int pageSize = 8;
 
             var x = new MummiesViewModel

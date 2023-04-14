@@ -9,6 +9,7 @@ namespace HeaddirectionModelTest
 {
     public class MummyData
     {
+        //THIS IS ALL THE DATA FIELDS FOR THE API
         [Required]
         public float SexMale { get; set; }
         [Required]

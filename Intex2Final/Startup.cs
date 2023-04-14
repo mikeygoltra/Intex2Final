@@ -42,7 +42,7 @@ namespace Intex2Final
                 services.AddControllers();
             }
 
-
+            //FOR THE API
             services.AddSingleton<InferenceSession>(
                 new InferenceSession(
                     Path.Combine(_env.ContentRootPath, "wwwroot", "test.onnx")
@@ -104,7 +104,7 @@ namespace Intex2Final
             app.UseAuthorization();
             app.Use(async (context, next) =>
             {
-                //may need to add more website links or image links
+                //may need to add more website links or image links; THIS IS THE CSP HEADER
                 context.Response.Headers.Add("Content - Security - Policy", "default - src 'self'; script - src 'self' 'unsafe-inline'; style - src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self'; img-src 'self' https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F7d3dfd74-27d4-11e9-92e2-27eb1cf1c11f.jpg?crop=4675%2C2630%2C33%2C485&resize=1180 mummyicon.png; frame-src 'self'");
                 await next();
             });
