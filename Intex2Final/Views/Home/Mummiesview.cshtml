@@ -8,23 +8,23 @@
 <div class="centerPage">
     <div class="row text-center">
         <form method="get" class="m-2">
-            <input type="text" class="p-2" placeholder="Depth (M)" value="" name="depth" asp-route-depth="" />
-            <input type="text" class="p-2" placeholder="Age at death" value="" name="age" />
+            <input type="text" class="p-2 m-l-3rem" placeholder="Depth (M)" value="" name="depth" asp-route-depth="" style="border-radius: 5px" />
+            <input type="text" class="p-2" placeholder="Age at death" value="" name="age" style="border-radius: 5px" />
 
-            <select class="p-2" name="sex">
+            <select class="p-2" name="sex" style="border-radius: 5px">
                 <option value="">Sex</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
             </select>
 
-            <select class="p-2" name="headdir">
+            <select class="p-2" name="headdir" style="border-radius: 5px">
                 <option value="">Head Direction</option>
                 <option value="W">West</option>
                 <option value="E">East</option>
             </select>
             @*<input type="hidden" name="Id" />*@
-            <button type="submit" class="p-2" asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="">Filter</button>
-            <a asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="1" class="btn btn-outline-primary m-2">Clear Filters</a>
+            <button type="submit" asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="" class="btn btn-dark m-2">Filter</button>
+            <a asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="1" class="btn btn-outline-dark">Clear Filters</a>
         </form>
     </div>
 

@@ -11,6 +11,11 @@ namespace Intex2Final.Models.ViewModels
         public int TotalNumBurials { get; set; }
         public int BurialsPerPage { get; set; }
         public int CurrentPage { get; set; }
+        
+        public string Depth { get; set; }
+        public string Age { get; set; }
+        public string Sex { get; set; }
+        public string Headdir { get; set; }
         public int TotalPages => (int) Math.Ceiling((double)TotalNumBurials / BurialsPerPage);
 
         public string Depth { get; set; }
