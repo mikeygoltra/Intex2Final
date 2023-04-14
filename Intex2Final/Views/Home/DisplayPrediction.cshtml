@@ -84,8 +84,6 @@
             }
 
 
-
-
     </style>
 </head>
 <body>
@@ -232,20 +230,22 @@
 
                     if (predictedValue < 0.50) {
                         outputDataTextarea.textContent = "EAST";
-                        outputDataTextarea.style.color = "green";
-                        outputDataTextarea.style.textTransform = "uppercase";
-                        outputDataTextarea.style.fontSize = "3rem";
-                        outputDataTextarea.style.fontWeight = "bold";
-                        outputDataTextarea.style.color = "#00bfff";
-
+                        outputDataTextarea.style.fontSize = "50px";
+                        outputDataTextarea.style.color = "#00008B";
+                        outputDataTextarea.style.textAlign = "center";
+                        outputDataTextarea.style.display = "flex";
+                        outputDataTextarea.style.justifyContent = "center";
+                        outputDataTextarea.style.alignItems = "center";
+                        
                     } else if (predictedValue >= 0.50) {
                         outputDataTextarea.textContent = "WEST";
-                        outputDataTextarea.style.color = "blue";
-                        outputDataTextarea.style.textTransform = "uppercase";
-                        outputDataTextarea.style.fontSize = "3rem";
-                        outputDataTextarea.style.fontWeight = "bold";
-                        outputDataTextarea.style.color = "#00bfff";
-
+                        outputDataTextarea.style.fontSize = "50px";
+                        outputDataTextarea.style.color = "#00008B";
+                        outputDataTextarea.style.textAlign = "center";
+                        outputDataTextarea.style.display = "flex";
+                        outputDataTextarea.style.justifyContent = "center";
+                        outputDataTextarea.style.alignItems = "center";
+                        
                     }
                     outputDataTextarea.style.fontSize = "16px";
                     outputDataTextarea.style.fontWeight = "bold";

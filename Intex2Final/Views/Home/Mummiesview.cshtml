@@ -5,35 +5,37 @@
 
 
 
+<div class="centerPage">
+    <div class="row text-center">
+        <form method="get" class="m-2">
+            <input type="text" class="p-2" placeholder="Depth (M)" value="" name="depth" asp-route-depth="" />
+            <input type="text" class="p-2" placeholder="Age at death" value="" name="age" />
 
-<div class="row text-center">
-    <a asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="1" class="btn btn-outline-primary m-2">Clear Filters</a>
-    <form method="get" class="m-2">
-        <input type="text" class="p-2" placeholder="Depth (M)" value="" name="depth" asp-route-depth="" />
-        <input type="text" class="p-2" placeholder="Age at death" value="" name="age" />
+            <select class="p-2" name="sex">
+                <option value="">Sex</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
 
-        <select class="p-2" name="sex">
-            <option value="">Sex</option>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-        </select>
+            <select class="p-2" name="headdir">
+                <option value="">Head Direction</option>
+                <option value="W">West</option>
+                <option value="E">East</option>
+            </select>
+            @*<input type="hidden" name="Id" />*@
+            <button type="submit" class="p-2" asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="">Filter</button>
+            <a asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="1" class="btn btn-outline-primary m-2">Clear Filters</a>
+        </form>
+    </div>
 
-        <select class="p-2" name="headdir">
-            <option value="">Head Direction</option>
-            <option value="W">West</option>
-            <option value="E">East</option>
-        </select>
-        @*<input type="hidden" name="Id" />*@
-        <button type="submit" class="p-2" asp-controller="Home" asp-action="Mummiesview" asp-route-pageNum="1">Filter</button>
-    </form>
+    @foreach (Burialmain b in Model.Burialmains)
+    {
+        <form method="get" class="formKiller">
+            <partial name="MummySummary" model="b"/>
+        </form>
+    }
+
+    <div page-next="@Model.PageInfo" page-action="MummiesView" page-class="btn" 
+         page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+
 </div>
-
-@foreach (Burialmain b in Model.Burialmains)
-{
-    <form method="get" class="formKiller">
-        <partial name="MummySummary" model="b"/>
-    </form>
-}
-
-<div page-next="@Model.PageInfo" page-action="MummiesView" page-class="btn" 
-     page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
